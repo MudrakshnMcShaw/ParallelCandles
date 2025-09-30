@@ -1,6 +1,4 @@
-
-Note please replace the path of the files in the following bash files
-
+Please update the paths of the files inside the following bash scripts before running them:
 accelpix.sh
 truedata.sh
 parallel_candle.sh
