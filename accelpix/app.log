@@ -1,0 +1,500 @@
+2025-09-30 16:19:03.491 [INFO] Loaded 249 tickers (including required index tickers)
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23950CE', 'xts_symbol': 'NIFTY30SEP2523950CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25150PE', 'xts_symbol': 'NIFTY30SEP2525150PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23550CE', 'xts_symbol': 'NIFTY30SEP2523550CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181900CE-BSE', 'xts_symbol': 'SENSEX01OCT2581900CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181200PE-BSE', 'xts_symbol': 'SENSEX01OCT2581200PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24500CE', 'xts_symbol': 'NIFTY30SEP2524500CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22700PE', 'xts_symbol': 'NIFTY30SEP2522700PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24350CE', 'xts_symbol': 'NIFTY30SEP2524350CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23100CE', 'xts_symbol': 'NIFTY30SEP2523100CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23200PE', 'xts_symbol': 'NIFTY30SEP2523200PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25300CE', 'xts_symbol': 'NIFTY30SEP2525300CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180500CE-BSE', 'xts_symbol': 'SENSEX01OCT2580500CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25950CE', 'xts_symbol': 'NIFTY30SEP2525950CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22850PE', 'xts_symbol': 'NIFTY30SEP2522850PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25350CE', 'xts_symbol': 'NIFTY30SEP2525350CE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24000PE', 'xts_symbol': 'NIFTY30SEP2524000PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180800PE-BSE', 'xts_symbol': 'SENSEX01OCT2580800PE', 'eid': None}
+2025-09-30 16:19:03.491 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181500PE-BSE', 'xts_symbol': 'SENSEX01OCT2581500PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180600PE-BSE', 'xts_symbol': 'SENSEX01OCT2580600PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24050CE', 'xts_symbol': 'NIFTY30SEP2524050CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25650PE', 'xts_symbol': 'NIFTY30SEP2525650PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22650PE', 'xts_symbol': 'NIFTY30SEP2522650PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24300PE', 'xts_symbol': 'NIFTY30SEP2524300PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179000CE-BSE', 'xts_symbol': 'SENSEX01OCT2579000CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26200PE', 'xts_symbol': 'NIFTY30SEP2526200PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180400PE-BSE', 'xts_symbol': 'SENSEX01OCT2580400PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23700CE', 'xts_symbol': 'NIFTY30SEP2523700CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25050PE', 'xts_symbol': 'NIFTY30SEP2525050PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181500CE-BSE', 'xts_symbol': 'SENSEX01OCT2581500CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24800PE', 'xts_symbol': 'NIFTY30SEP2524800PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23800CE', 'xts_symbol': 'NIFTY30SEP2523800CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179300PE-BSE', 'xts_symbol': 'SENSEX01OCT2579300PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182200PE-BSE', 'xts_symbol': 'SENSEX01OCT2582200PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26400CE', 'xts_symbol': 'NIFTY30SEP2526400CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23650CE', 'xts_symbol': 'NIFTY30SEP2523650CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179500PE-BSE', 'xts_symbol': 'SENSEX01OCT2579500PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26500CE', 'xts_symbol': 'NIFTY30SEP2526500CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24550CE', 'xts_symbol': 'NIFTY30SEP2524550CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178500CE-BSE', 'xts_symbol': 'SENSEX01OCT2578500CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23350CE', 'xts_symbol': 'NIFTY30SEP2523350CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26600PE', 'xts_symbol': 'NIFTY30SEP2526600PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26550CE', 'xts_symbol': 'NIFTY30SEP2526550CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23900CE', 'xts_symbol': 'NIFTY30SEP2523900CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23850PE', 'xts_symbol': 'NIFTY30SEP2523850PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24900PE', 'xts_symbol': 'NIFTY30SEP2524900PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181100CE-BSE', 'xts_symbol': 'SENSEX01OCT2581100CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22800CE', 'xts_symbol': 'NIFTY30SEP2522800CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24950PE', 'xts_symbol': 'NIFTY30SEP2524950PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25250PE', 'xts_symbol': 'NIFTY30SEP2525250PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25850PE', 'xts_symbol': 'NIFTY30SEP2525850PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'BANKNIFTY-1', 'xts_symbol': 'BANKNIFTY25SEPFUT', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179000PE-BSE', 'xts_symbol': 'SENSEX01OCT2579000PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178800CE-BSE', 'xts_symbol': 'SENSEX01OCT2578800CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180900PE-BSE', 'xts_symbol': 'SENSEX01OCT2580900PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180000CE-BSE', 'xts_symbol': 'SENSEX01OCT2580000CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24650CE', 'xts_symbol': 'NIFTY30SEP2524650CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181100PE-BSE', 'xts_symbol': 'SENSEX01OCT2581100PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178900PE-BSE', 'xts_symbol': 'SENSEX01OCT2578900PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26050CE', 'xts_symbol': 'NIFTY30SEP2526050CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24200CE', 'xts_symbol': 'NIFTY30SEP2524200CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24450CE', 'xts_symbol': 'NIFTY30SEP2524450CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24800CE', 'xts_symbol': 'NIFTY30SEP2524800CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179700CE-BSE', 'xts_symbol': 'SENSEX01OCT2579700CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179100PE-BSE', 'xts_symbol': 'SENSEX01OCT2579100PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179500CE-BSE', 'xts_symbol': 'SENSEX01OCT2579500CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179900CE-BSE', 'xts_symbol': 'SENSEX01OCT2579900CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24100PE', 'xts_symbol': 'NIFTY30SEP2524100PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23150CE', 'xts_symbol': 'NIFTY30SEP2523150CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182000CE-BSE', 'xts_symbol': 'SENSEX01OCT2582000CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24550PE', 'xts_symbol': 'NIFTY30SEP2524550PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180400CE-BSE', 'xts_symbol': 'SENSEX01OCT2580400CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26250PE', 'xts_symbol': 'NIFTY30SEP2526250PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24250CE', 'xts_symbol': 'NIFTY30SEP2524250CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23300CE', 'xts_symbol': 'NIFTY30SEP2523300CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182000PE-BSE', 'xts_symbol': 'SENSEX01OCT2582000PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY-1', 'xts_symbol': 'NIFTY25SEPFUT', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181200CE-BSE', 'xts_symbol': 'SENSEX01OCT2581200CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180800CE-BSE', 'xts_symbol': 'SENSEX01OCT2580800CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23000CE', 'xts_symbol': 'NIFTY30SEP2523000CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181400CE-BSE', 'xts_symbol': 'SENSEX01OCT2581400CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179700PE-BSE', 'xts_symbol': 'SENSEX01OCT2579700PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182300CE-BSE', 'xts_symbol': 'SENSEX01OCT2582300CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178400CE-BSE', 'xts_symbol': 'SENSEX01OCT2578400CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23200CE', 'xts_symbol': 'NIFTY30SEP2523200CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179600CE-BSE', 'xts_symbol': 'SENSEX01OCT2579600CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179400PE-BSE', 'xts_symbol': 'SENSEX01OCT2579400PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25700CE', 'xts_symbol': 'NIFTY30SEP2525700CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180200PE-BSE', 'xts_symbol': 'SENSEX01OCT2580200PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23750CE', 'xts_symbol': 'NIFTY30SEP2523750CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178500PE-BSE', 'xts_symbol': 'SENSEX01OCT2578500PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22750CE', 'xts_symbol': 'NIFTY30SEP2522750CE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23900PE', 'xts_symbol': 'NIFTY30SEP2523900PE', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'NIFTY-2', 'xts_symbol': 'NIFTY25OCTFUT', 'eid': None}
+2025-09-30 16:19:03.492 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182100CE-BSE', 'xts_symbol': 'SENSEX01OCT2582100CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24050PE', 'xts_symbol': 'NIFTY30SEP2524050PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180000PE-BSE', 'xts_symbol': 'SENSEX01OCT2580000PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179200PE-BSE', 'xts_symbol': 'SENSEX01OCT2579200PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179400CE-BSE', 'xts_symbol': 'SENSEX01OCT2579400CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26450PE', 'xts_symbol': 'NIFTY30SEP2526450PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22850CE', 'xts_symbol': 'NIFTY30SEP2522850CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24600PE', 'xts_symbol': 'NIFTY30SEP2524600PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25550CE', 'xts_symbol': 'NIFTY30SEP2525550CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25300PE', 'xts_symbol': 'NIFTY30SEP2525300PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23850CE', 'xts_symbol': 'NIFTY30SEP2523850CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179300CE-BSE', 'xts_symbol': 'SENSEX01OCT2579300CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26300PE', 'xts_symbol': 'NIFTY30SEP2526300PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25600PE', 'xts_symbol': 'NIFTY30SEP2525600PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24300CE', 'xts_symbol': 'NIFTY30SEP2524300CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180500PE-BSE', 'xts_symbol': 'SENSEX01OCT2580500PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178600CE-BSE', 'xts_symbol': 'SENSEX01OCT2578600CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23500PE', 'xts_symbol': 'NIFTY30SEP2523500PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23250PE', 'xts_symbol': 'NIFTY30SEP2523250PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181700CE-BSE', 'xts_symbol': 'SENSEX01OCT2581700CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23950PE', 'xts_symbol': 'NIFTY30SEP2523950PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25400CE', 'xts_symbol': 'NIFTY30SEP2525400CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23100PE', 'xts_symbol': 'NIFTY30SEP2523100PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180200CE-BSE', 'xts_symbol': 'SENSEX01OCT2580200CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26400PE', 'xts_symbol': 'NIFTY30SEP2526400PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24000CE', 'xts_symbol': 'NIFTY30SEP2524000CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22700CE', 'xts_symbol': 'NIFTY30SEP2522700CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23400PE', 'xts_symbol': 'NIFTY30SEP2523400PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180700CE-BSE', 'xts_symbol': 'SENSEX01OCT2580700CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24850PE', 'xts_symbol': 'NIFTY30SEP2524850PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178800PE-BSE', 'xts_symbol': 'SENSEX01OCT2578800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22900CE', 'xts_symbol': 'NIFTY30SEP2522900CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24850CE', 'xts_symbol': 'NIFTY30SEP2524850CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25500CE', 'xts_symbol': 'NIFTY30SEP2525500CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180900CE-BSE', 'xts_symbol': 'SENSEX01OCT2580900CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26250CE', 'xts_symbol': 'NIFTY30SEP2526250CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25800PE', 'xts_symbol': 'NIFTY30SEP2525800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181800PE-BSE', 'xts_symbol': 'SENSEX01OCT2581800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26100CE', 'xts_symbol': 'NIFTY30SEP2526100CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179600PE-BSE', 'xts_symbol': 'SENSEX01OCT2579600PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23800PE', 'xts_symbol': 'NIFTY30SEP2523800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23550PE', 'xts_symbol': 'NIFTY30SEP2523550PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23000PE', 'xts_symbol': 'NIFTY30SEP2523000PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179800CE-BSE', 'xts_symbol': 'SENSEX01OCT2579800CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25950PE', 'xts_symbol': 'NIFTY30SEP2525950PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25500PE', 'xts_symbol': 'NIFTY30SEP2525500PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24750PE', 'xts_symbol': 'NIFTY30SEP2524750PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180700PE-BSE', 'xts_symbol': 'SENSEX01OCT2580700PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24250PE', 'xts_symbol': 'NIFTY30SEP2524250PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24450PE', 'xts_symbol': 'NIFTY30SEP2524450PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179800PE-BSE', 'xts_symbol': 'SENSEX01OCT2579800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178900CE-BSE', 'xts_symbol': 'SENSEX01OCT2578900CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26000CE', 'xts_symbol': 'NIFTY30SEP2526000CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25050CE', 'xts_symbol': 'NIFTY30SEP2525050CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24700CE', 'xts_symbol': 'NIFTY30SEP2524700CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26500PE', 'xts_symbol': 'NIFTY30SEP2526500PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181900PE-BSE', 'xts_symbol': 'SENSEX01OCT2581900PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25100CE', 'xts_symbol': 'NIFTY30SEP2525100CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23700PE', 'xts_symbol': 'NIFTY30SEP2523700PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22950CE', 'xts_symbol': 'NIFTY30SEP2522950CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25600CE', 'xts_symbol': 'NIFTY30SEP2525600CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25850CE', 'xts_symbol': 'NIFTY30SEP2525850CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23050PE', 'xts_symbol': 'NIFTY30SEP2523050PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24400CE', 'xts_symbol': 'NIFTY30SEP2524400CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24750CE', 'xts_symbol': 'NIFTY30SEP2524750CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX-1-BSE', 'xts_symbol': 'SENSEX30OCT25FUT', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25100PE', 'xts_symbol': 'NIFTY30SEP2525100PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178700PE-BSE', 'xts_symbol': 'SENSEX01OCT2578700PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25550PE', 'xts_symbol': 'NIFTY30SEP2525550PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22800PE', 'xts_symbol': 'NIFTY30SEP2522800PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26200CE', 'xts_symbol': 'NIFTY30SEP2526200CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23150PE', 'xts_symbol': 'NIFTY30SEP2523150PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178400PE-BSE', 'xts_symbol': 'SENSEX01OCT2578400PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26050PE', 'xts_symbol': 'NIFTY30SEP2526050PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25900CE', 'xts_symbol': 'NIFTY30SEP2525900CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26300CE', 'xts_symbol': 'NIFTY30SEP2526300CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25450CE', 'xts_symbol': 'NIFTY30SEP2525450CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182300PE-BSE', 'xts_symbol': 'SENSEX01OCT2582300PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182100PE-BSE', 'xts_symbol': 'SENSEX01OCT2582100PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25800CE', 'xts_symbol': 'NIFTY30SEP2525800CE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26350PE', 'xts_symbol': 'NIFTY30SEP2526350PE', 'eid': None}
+2025-09-30 16:19:03.493 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23500CE', 'xts_symbol': 'NIFTY30SEP2523500CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25350PE', 'xts_symbol': 'NIFTY30SEP2525350PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25650CE', 'xts_symbol': 'NIFTY30SEP2525650CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23750PE', 'xts_symbol': 'NIFTY30SEP2523750PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25900PE', 'xts_symbol': 'NIFTY30SEP2525900PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180300CE-BSE', 'xts_symbol': 'SENSEX01OCT2580300CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23250CE', 'xts_symbol': 'NIFTY30SEP2523250CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24350PE', 'xts_symbol': 'NIFTY30SEP2524350PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22900PE', 'xts_symbol': 'NIFTY30SEP2522900PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181300PE-BSE', 'xts_symbol': 'SENSEX01OCT2581300PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24950CE', 'xts_symbol': 'NIFTY30SEP2524950CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26550PE', 'xts_symbol': 'NIFTY30SEP2526550PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26450CE', 'xts_symbol': 'NIFTY30SEP2526450CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24150CE', 'xts_symbol': 'NIFTY30SEP2524150CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26350CE', 'xts_symbol': 'NIFTY30SEP2526350CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24900CE', 'xts_symbol': 'NIFTY30SEP2524900CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181000PE-BSE', 'xts_symbol': 'SENSEX01OCT2581000PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179100CE-BSE', 'xts_symbol': 'SENSEX01OCT2579100CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24200PE', 'xts_symbol': 'NIFTY30SEP2524200PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25250CE', 'xts_symbol': 'NIFTY30SEP2525250CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181800CE-BSE', 'xts_symbol': 'SENSEX01OCT2581800CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181300CE-BSE', 'xts_symbol': 'SENSEX01OCT2581300CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23650PE', 'xts_symbol': 'NIFTY30SEP2523650PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25450PE', 'xts_symbol': 'NIFTY30SEP2525450PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179200CE-BSE', 'xts_symbol': 'SENSEX01OCT2579200CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25750PE', 'xts_symbol': 'NIFTY30SEP2525750PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25150CE', 'xts_symbol': 'NIFTY30SEP2525150CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25200CE', 'xts_symbol': 'NIFTY30SEP2525200CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24600CE', 'xts_symbol': 'NIFTY30SEP2524600CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25400PE', 'xts_symbol': 'NIFTY30SEP2525400PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26150PE', 'xts_symbol': 'NIFTY30SEP2526150PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181700PE-BSE', 'xts_symbol': 'SENSEX01OCT2581700PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24150PE', 'xts_symbol': 'NIFTY30SEP2524150PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24650PE', 'xts_symbol': 'NIFTY30SEP2524650PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25000PE', 'xts_symbol': 'NIFTY30SEP2525000PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181400PE-BSE', 'xts_symbol': 'SENSEX01OCT2581400PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24500PE', 'xts_symbol': 'NIFTY30SEP2524500PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23050CE', 'xts_symbol': 'NIFTY30SEP2523050CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23400CE', 'xts_symbol': 'NIFTY30SEP2523400CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24400PE', 'xts_symbol': 'NIFTY30SEP2524400PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24700PE', 'xts_symbol': 'NIFTY30SEP2524700PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26000PE', 'xts_symbol': 'NIFTY30SEP2526000PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23300PE', 'xts_symbol': 'NIFTY30SEP2523300PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180100PE-BSE', 'xts_symbol': 'SENSEX01OCT2580100PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP24100CE', 'xts_symbol': 'NIFTY30SEP2524100CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180600CE-BSE', 'xts_symbol': 'SENSEX01OCT2580600CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26150CE', 'xts_symbol': 'NIFTY30SEP2526150CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181000CE-BSE', 'xts_symbol': 'SENSEX01OCT2581000CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25700PE', 'xts_symbol': 'NIFTY30SEP2525700PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180100CE-BSE', 'xts_symbol': 'SENSEX01OCT2580100CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26100PE', 'xts_symbol': 'NIFTY30SEP2526100PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23350PE', 'xts_symbol': 'NIFTY30SEP2523350PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22750PE', 'xts_symbol': 'NIFTY30SEP2522750PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23600PE', 'xts_symbol': 'NIFTY30SEP2523600PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22650CE', 'xts_symbol': 'NIFTY30SEP2522650CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0182200CE-BSE', 'xts_symbol': 'SENSEX01OCT2582200CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP26600CE', 'xts_symbol': 'NIFTY30SEP2526600CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25750CE', 'xts_symbol': 'NIFTY30SEP2525750CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23450CE', 'xts_symbol': 'NIFTY30SEP2523450CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25200PE', 'xts_symbol': 'NIFTY30SEP2525200PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23450PE', 'xts_symbol': 'NIFTY30SEP2523450PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0180300PE-BSE', 'xts_symbol': 'SENSEX01OCT2580300PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181600PE-BSE', 'xts_symbol': 'SENSEX01OCT2581600PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP25000CE', 'xts_symbol': 'NIFTY30SEP2525000CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0181600CE-BSE', 'xts_symbol': 'SENSEX01OCT2581600CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0179900PE-BSE', 'xts_symbol': 'SENSEX01OCT2579900PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP22950PE', 'xts_symbol': 'NIFTY30SEP2522950PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178600PE-BSE', 'xts_symbol': 'SENSEX01OCT2578600PE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY25SEP23600CE', 'xts_symbol': 'NIFTY30SEP2523600CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX25O0178700CE-BSE', 'xts_symbol': 'SENSEX01OCT2578700CE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'BANKNIFTY-2', 'xts_symbol': 'BANKNIFTY25OCTFUT', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY 50', 'xts_symbol': 'NIFTY 50', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY BANK', 'xts_symbol': 'NIFTY BANK', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'NIFTY FIN SERVICE', 'xts_symbol': 'NIFTY FIN SERVICE', 'eid': None}
+2025-09-30 16:19:03.494 [INFO]  sample:, {'provider_tkr': 'SENSEX-BSE', 'xts_symbol': 'SENSEX', 'eid': None}
+2025-09-30 16:19:03.496 [INFO] started polling loop for 249 tickers, concurrency=100
+2025-09-30 16:20:00.552 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23950CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.552 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25150PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.552 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23550CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.552 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181900CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.552 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181200PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24500CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22700PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24350CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23100CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23200PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25300CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180500CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25950CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22850PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.553 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25350CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24000PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180800PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181500PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180600PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24050CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.554 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25650PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22650PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24300PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179000CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26200PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180400PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23700CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25050PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181500CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.556 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24800PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.557 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23800CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.557 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179300PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.557 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182200PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.557 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26400CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23650CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179500PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26500CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24550CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178500CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23350CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26600PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26550CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23900CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23850PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.558 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24900PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.579 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181100CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.579 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22800CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.580 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24950PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.580 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25250PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.580 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25850PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.580 [INFO] http://apidata5.accelpix.in/api/fda/rest/BANKNIFTY-1/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179000PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178800CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180900PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180000CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24650CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181100PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.581 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178900PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26050CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24200CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24450CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24800CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179700CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179100PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179500CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179900CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24100PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23150CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.582 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182000CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24550PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180400CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26250PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24250CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23300CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182000PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY-1/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181200CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.583 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180800CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.584 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23000CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.584 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181400CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.584 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179700PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.584 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182300CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178400CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23200CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179600CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179400PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25700CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180200PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.585 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23750CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.586 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178500PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.586 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22750CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.586 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23900PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY-2/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182100CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24050PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180000PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179200PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179400CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.588 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26450PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22850CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24600PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25550CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25300PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23850CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179300CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26300PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25600PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24300CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180500PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178600CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23500PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23250PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181700CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23950PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25400CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23100PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180200CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26400PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24000CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22700CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.589 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23400PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180700CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24850PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178800PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22900CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24850CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25500CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.590 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180900CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26250CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25800PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181800PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26100CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179600PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23800PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23550PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23000PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179800CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25950PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25500PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24750PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180700PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24250PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24450PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179800PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178900CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.591 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26000CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25050CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24700CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26500PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181900PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25100CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23700PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22950CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25600CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25850CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23050PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24400CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24750CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX-1-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25100PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178700PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25550PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22800PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26200CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23150PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178400PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26050PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25900CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26300CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25450CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182300PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182100PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25800CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26350PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23500CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25350PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25650CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23750PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25900PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180300CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23250CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24350PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22900PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181300PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24950CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.592 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26550PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26450CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24150CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26350CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24900CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181000PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179100CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24200PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25250CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181800CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181300CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23650PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25450PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179200CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25750PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25150CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25200CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24600CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25400PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26150PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181700PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24150PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24650PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25000PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181400PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24500PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.593 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23050CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23400CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24400PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24700PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26000PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23300PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180100PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP24100CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180600CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26150CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181000CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25700PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180100CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26100PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23350PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22750PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23600PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22650CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0182200CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP26600CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25750CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23450CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25200PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23450PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0180300PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181600PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP25000CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0181600CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0179900PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP22950PE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.595 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178600PE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY25SEP23600CE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX25O0178700CE-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/BANKNIFTY-2/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY%2050/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY%20BANK/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/NIFTY%20FIN%20SERVICE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D
+2025-09-30 16:20:00.596 [INFO] http://apidata5.accelpix.in/api/fda/rest/SENSEX-BSE/20250930 16:19:00/20250930 16:19:59/1?api_token=FYr2LSwxufy8fMvnQCggOJK1nJ8%3D

@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: signalrcore-async
+Version: 0.5.4
+Summary: Asynchronous fork of signalrcore with MessagePack support: A Python SignalR Core client, with invocation auth and two way streaming. Compatible with azure / serverless functions. Also with automatic reconnect and manual reconnect.
+Home-page: https://github.com/apollo3zehn/signalrcore
+Author: Apollo3zehn
+License: UNKNOWN
+Keywords: signalr core client 3.1
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: msgpack (>=1.0.0)
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: websockets (>=8.1)
+
+# SignalR core client
+
+![Pypi](https://img.shields.io/pypi/v/signalrcore-async.svg)
+![Pypi - downloads month](https://img.shields.io/pypi/dm/signalrcore-async.svg)
+
+This signalr core client is forked from mandrewcito. The main difference is the replacement of the synchronous ```websocket-client``` library by the asynchronous ```websockets``` library. Additionally, all methods have been made asynchronous.
+
+See https://github.com/mandrewcito/signalrcore for a general introduction.
+
+See the following samples to get an idea of the changes:
+
+```python
+import asyncio
+
+from signalrcore_async.hub_connection_builder import HubConnectionBuilder
+from signalrcore_async.protocol.msgpack import MessagePackHubProtocol
+
+async def main():
+
+    protocol = "ws"
+    host = "localhost"
+    port = "8080"
+    hub = "hub"
+    hub_url = f"{protocol}://{host}:{port}/{hub}"
+
+    connection = HubConnectionBuilder()\
+                .with_url(hub_url)\
+                # optional: use MessagePack instead of json protocol
+                .with_hub_protocol(MessagePackHubProtocol())\
+                .build()
+
+    try:
+        # start connection
+        await connection.start()
+
+        # send (fire and forget)
+        connection.send("SendName", "R2D2")
+
+        # invoke (wait for return value)
+        sum_value = await connection.invoke("Sum", [1, 2])
+        print(sum_value)
+
+        # register callback
+        connection.on("OnProgressChanged", _on_progress_changed)
+
+        # stream
+        await connection.stream("StreamData", [1, 2], _on_next)
+
+    finally:
+        # close connection
+        await connection.stop()
+
+def _on_next(data):
+    pass # do something with the streamed data
+
+def _on_progress_changed(self, args):
+    progress = args[0]
+    print(f"Progress: {progress * 100:.0f}%")
+
+# run main task
+asyncio.run(main())
+```
+

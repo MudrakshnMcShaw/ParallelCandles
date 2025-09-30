@@ -1,0 +1,7 @@
+websocket-client
+urllib3
+requests
+redis
+pymongo
+termcolor
+pandas

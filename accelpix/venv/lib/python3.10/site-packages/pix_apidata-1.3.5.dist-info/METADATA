@@ -1,0 +1,504 @@
+Metadata-Version: 2.1
+Name: pix_apidata
+Version: 1.3.5
+Summary: Python library to connect and stream the market data.
+Home-page: https://github.com/pscoumar
+Author: Coumar Pandourangane
+Author-email: pscoumar@gmail.com
+License: MIT
+Keywords: stock market,apidata,accelpix,ticanalytics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: websockets==10.0.0
+Requires-Dist: signalrcore-async
+Requires-Dist: urllib3
+
+# AccelPix Data API
+
+# Introduction 
+
+Python library to connect and stream the market data.
+This is websocket and fallback transport based library with all the functionalyties to get eod and live streaming data
+
+Simple and easy integration with your web application, all heavy weight work are back lifted.
+
+# What's new
+v1.3.5 : 13-12-2024
+Bug fixes
+
+v1.3.4 : 11-Dec-2024
+Scheme param removed from initialize method
+Library tree updated to latest version
+
+v1.3.3 : 29-Aug-2022
+1. Option Chain and Option Chain Range subscription and unsubscription method.
+
+v1.3.2 : 02-Aug-2022
+1. Intraducing Optionchain subscription and unsubscription method.
+
+v1.3.1 : 28-Jan-2022
+1. New callback for Trade snapshot during subscription, earlier it was provided along with Trade callback
+2. Segment subscription for the entitled user
+3. Intraducing Option Greeks 
+
+v1.3.0 : 06-May-2021
+1. Upper and lower price band for EQ market added - refer 'Refs snapshot data' section
+2. Live ticks aggregation which provides current day minutes bar - refer 'History data - Inraday' section 
+# Simple steps to up and running
+> ### For Streaming Data:
+1. Initialize
+2. Register required callbacks
+3. Do subscribe with symbols list
+
+> ### For History Data:
+1. Initialize
+2. Async call to respective methods exposed
+
+#### **Working sample is available at the bottom of this help page**
+# Installation
+```bash
+pip install pix-apidata 
+```
+
+# Import
+
+```python
+import asyncio
+from pix_apidata import *
+```
+
+# Initialize
+```python
+api = apidata_lib.ApiData()
+event_loop = asyncio.get_event_loop()
+
+apiKey = "api-access-key" //provided by your data vendor
+apiHost = "apidata.accelpix.in" //provided by your data vendor
+
+await api.initialize(apiKey, apiHost) 
+
+# *** IMPORTANT ***
+
+# *** initialize(...) - wait for initialize to complete before making any other API calls.
+```
+# Symbol Master
+### Use below REST API to get Master Data
+#### (Only for master data download due to larger data size)
+### https://apidata.accelpix.in/api/hsd/Masters/2?fmt=json
+```python
+#response data
+{
+  xid: 1,
+  tkr: "20MICRONS",
+  atkr: null,
+  ctkr: null,
+  exp: "1970-01-01 00:00:00",
+  utkr: null,
+  inst: "EQUITY",
+  a3tkr: null,
+  sp: 0.00,
+  tk: 16921
+}
+```
+# Callbacks for live streaming
+
+### Available callbacks  
+
+#### api.on_trade_update(on_trade)
+
+#### api.on_best_update(on_best)
+
+#### api.on_refs_update(on_refs)
+
+#### api.on_srefs_update(on_srefs)
+
+#### api.on_tradeSnapshot_update(on_tradeSnap)
+#### api.on_greeks_update(on_greeks)
+
+#### Trade
+```python
+#callback to listen for trade data
+api.on_trade_update(on_trade)
+def on_trade(msg):
+  print(msg) # Trade msg
+  t = apidata_models.Trade(msg)
+  print(t.ticker , t.oi) #likewise object can be called for id, kind, ticker, segment, price, qty, volume, oi
+
+#response data
+  {
+    id: 0, 
+    ticker: 'NIFTY-1', 
+    segmentId: 2, 
+    time: 1293704493, 
+    price: 13958.6, 
+    qty: 75, 
+    volume: 1587975, 
+    oi: 9700275,
+    kind: 'T'
+  } 
+```
+#### Trade snapshot data
+```python
+#callback to listen for trade snapshot, called during subcription process
+#listen to onTrade callback for continuouse stream data
+api.on_tradeSnapshot_update(on_tradeSnapshot)
+def on_tradeSnapshot(msg):
+  print(msg) # TradeSnapshot msg
+  t = apidata_models.Trade(msg)
+  print(t.ticker , t.oi) #likewise object can be called for id, kind, ticker, segment, price, qty, volume, oi
+
+#response data
+  {
+    id: 0, 
+    ticker: 'NIFTY-1', 
+    segmentId: 2, 
+    time: 1293704493, 
+    price: 13958.6, 
+    qty: 75, 
+    volume: 1587975, 
+    oi: 9700275,
+    kind: 'T'
+  } 
+```
+#### Best
+```python 
+#callback to listen for bid, ask and respective qty
+api.on_best_update(on_best)
+def on_best(msg):
+  print(msg) # Best msg
+  b = apidata_models.Best(msg)
+  print(b.ticker , b.bidPrice) #likewise object can be called for segmentId, kind, bidQty, askPrice, askQty
+
+#response data
+  {
+    ticker: 'NIFTY-1', 
+    segmentId: 2, 
+    kind: 'B', 
+    bidPrice: 13957.45, 
+    bidQty: 75, 
+    askPrice: 13958.8, 
+    askQty: 75, 
+    time: 1293704493
+  }  
+```
+
+### Recent change in Refs data
+```python
+#callback to listen for change in o, h, l, c, oi and avg data
+api.on_trade_ref(on_ref)
+def on_ref(msg):
+  print(msg) # Refs msg
+  ref = apidata_models.Refs(msg)
+  print(ref.price) #likewise object can be called for segmentId, kind, ticker
+
+#response data
+  {
+    kind: 'A',
+    ticker: 'NIFTY-1',
+    segmentId: 2,
+    price: 11781.08984375
+  }
+```
+### Refs snapshot data
+```python 
+#callback to listen for o, h, l, c, oi and avg snapshot
+api.on_srefs_update(on_srefs)
+def on_srefs(msg):
+  print(msg) # Srefs msg
+  sref = apidata_models.RefsSnapshot(msg)
+  print(sref.high) #likewise object can be called for kind, ticker, segmentId, open, close, high, low, avg, oi, upperBand and lowerBand
+
+#response data
+  {
+    kind: 'V', 
+    ticker: 'NIFTY-1',
+    segmentId: 2, 
+    open: 11749.650390625, 
+    close: 11681.5498046875,
+    avg: 11780.8603515625,
+    high: 11822,
+    low: 11731.2001953125,
+    oi: 10615950,
+    upperBand: 0,
+    lowerBand: 0
+
+  }
+```
+### OptionGreeks data
+```python 
+#callback to listen for optionGreek data
+api.on_greeks_update(on_greeks)
+def on_greeks(msg):
+  print(msg) # Option Greeks Data
+  greeks = apidata_models.Greeks(msg)
+  print(greeks.gamma) # likewise object can be called for kind, ticker, iv, delta, theta, vega, gamma, ivvwap, vanna, charm, speed, zomma, color, volga, veta, tgr, tv and dtr
+
+#response data
+  {
+    kind:'G',
+    ticker:'NIFTY2220318500CE',
+    charm:13.510149002075195,
+    color:0.0010876863962039351,
+    ivvwap:0.2657951712608337,
+    speed:-0.25761404633522034,
+    tgr:1437.1766357421875,
+    theta:-3.690974235534668,
+    tv:-28860.783203125,
+    vega:1.935671329498291,
+    veta:57653.11328125,
+    volga:0.000020740208128700033,
+    zomma:3.531916377141897e-7,
+    iv:0.2650300860404968,
+    gamma:0.00012788892490789294,
+    dtr:-1.9068187475204468,
+    delta:0.03707314282655716
+  }
+```
+### OptionGreeks Snapshot data
+```python 
+#callback to listen for optionGreek snap data
+api.on_greeks_update(on_greeks)
+def on_greekSnapshot(msg):
+  print(msg) # Option Greeks snap data
+  greeks = apidata_models.Greeks(msg)
+  print(greeks.gamma) # likewise object can be called for kind, ticker, iv, delta, theta, vega, gamma, ivvwap, vanna, charm, speed, zomma, color, volga, veta, tgr, tv and dtr
+
+#response data
+  {
+    kind:'G',
+    ticker:'NIFTY2220318500CE',
+    charm:13.510149002075195,
+    color:0.0010876863962039351,
+    ivvwap:0.2657951712608337,
+    speed:-0.25761404633522034,
+    tgr:1437.1766357421875,
+    theta:-3.690974235534668,
+    tv:-28860.783203125,
+    vega:1.935671329498291,
+    veta:57653.11328125,
+    volga:0.000020740208128700033,
+    zomma:3.531916377141897e-7,
+    iv:0.2650300860404968,
+    gamma:0.00012788892490789294,
+    dtr:-1.9068187475204468,
+    delta:0.03707314282655716
+  }
+```
+
+
+# Callbacks for connection status
+#### api.on_connection_started(connection_started)
+
+#### api.on_connection_stopped(connection_stopped)
+```python
+# Fired when connection is successful
+def connection_started():
+  print("Connection started callback")
+
+# Fired when the connection is closed after automatic retry or some issues in networking
+# Need to re-establish the connection manually
+
+def connection_stopped():
+  print("connection Stopped callback")
+```
+
+# Live stream subscription
+#### Subscribe to receive updates of segments entitled to you
+```python
+needSnapshot = False
+await api.subscribeSegments(needSnapshot)
+# IMPORTANT NOTE:
+# If needSnapshot = True, then buffer the updates received on 'api.on_tradeSnapshot_update' and 'api.on_srefs_update' before processing. 
+# Data transfer is huge and you may get disconnected from server in-case if you don't process the incoming updates as fast enough.
+# It's advised to buffer the data then process it once 'api.subscribeSegments' method returns.
+```
+#### Subscribe to receive ALL updates
+
+```python
+ await api.subscribeAll('NIFTY-1')
+```
+#### Subscribe to receive TRADE updates
+
+```python
+ await api.subscribeTrade(['NIFTY-1','BANKNIFTY-1','NIFTY 50'])
+```
+#### Subscribe to receive REFS and BEST updates
+```python
+await api.subscribeBestAndRefs(['NIFTY-1','BANKNIFTY-1'])
+```
+#### Subscribe to receive Greeks updates
+```python
+await api.subscribeGreeks(['NIFTY2220318500CE'])
+```
+#### Subscribe to receive Optionchain updates
+```python
+# params: spotName, Expiry Date
+# subscribe to full chain
+await api.subscribeOptionChain('BANKNIFTY','20220901')
+# subscribe to range of strikes(CE, PE) considering current spot value(at time of subscribe) as the mid-point, essentially 10 strike(CE,PE) below mid-point and 10 strikes(CE, PE) above mid-point and total of 40 contracts subscribed for the below call.
+await api.subscribeOptionChainRange('NIFTY','20220901',10)
+```
+# Unsubscribe live stream
+```python
+# unsubscribe single symbol
+ await api.unsubscribeAll(['NIFTY-1'])
+# unsubscribe multiple symbol
+ await api.unsubscribeAll(['NIFTY-1','BANKNIFTY-1'])
+```
+#### Unsubscribe Optionchain updates
+```python
+await api.unsubscribeOptionChain('NIFTY','20220609')
+```
+#### Unsubscribe Greeks updates
+```python
+await api.unsubscribeGreeks(['NIFTY2220318500CE'])
+```
+
+# History data - Eod
+```python
+# Continues data
+#params: ticker, startDate, endDate
+await api.get_eod("NIFTY-1", "20200828", "20200901")
+
+# Contract data
+#params: underlying ticker, startDate, endDate, contractExpiryDate
+await api.get_eod_contract("NIFTY", "20200828", "20200901", "20201029")
+
+#response data
+{
+  td: '2020-08-28T00:00:00',
+  op: 11630,
+  hp: 11708,
+  lp: 11617.05,
+  cp: 11689.05,
+  vol: 260625,
+  oi: 488325
+}
+```
+# History data - Inraday
+#### Provides intra-eod bars with the time resolution in minutes (default:'5' mins) 
+#### You can set minute resolution to '1', '5', '10' and so on. 
+#### Custom minute resolution also supported like '3', '7' and so on.
+#### Passing CURRENT DATE as parameter in 'toDate' will respond the LIVE ticks aggregated upto the time it traded today. Last BAR of the current day may be incomplete. Current day tick aggregation response will always provide complete bar list from the beginning of day.
+```python
+# Continues data 
+#params: ticker, startDate, endDate, resolution
+await api.get_intra_eod("NIFTY-1", "20210603", "20210604", "5")
+
+# Contract data
+#params: underlying ticker, startDate, endDate, contractExpiryDate
+await api.get_intra_eod_contract("NIFTY", "20200828", "20200901", "20201029", "5")
+
+#response data
+{
+  td: '2020-08-28T09:15:00',
+  op: 11630,
+  hp: 11643.45,
+  lp: 11630,
+  cp: 11639.8,
+  vol: 4575,
+  oi: 440475
+}
+```
+# History data - Ticks
+Provides back log ticks from the date time specified till current live time, that is the ticks available till request hit the server.
+```python
+#params: ticker, fromDateTime
+await api.get_back_ticks("BANKNIFTY-1", "20201016 15:00:00")
+
+#response data
+{
+  td: 2020-11-16T15:00:01.000Z,
+  pr: 23600,
+  vol: 125,
+  oi: 1692375
+}
+```
+# Example
+``` Python
+import asyncio
+import time
+#import requests
+from pix_apidata import *
+
+api = apidata_lib.ApiData()
+event_loop = asyncio.get_event_loop()
+
+async def main():
+    api.on_connection_started(connection_started)
+    api.on_connection_stopped(connection_stopped)
+    api.on_trade_update(on_trade)
+    api.on_best_update(on_best)
+    api.on_refs_update(on_refs)
+    api.on_srefs_update(on_srefs)
+    api.on_tradeSnapshot_update(on_tradeSnapshot)
+    api.on_greeks_update(on_greeks)
+    api.on_greekSnapshot_update(on_greekSnapshot)
+
+    key = "your-api-key"
+    host = "apidata.accelpix.in"
+    scheme = "http"
+    s = await api.initialize(key, host,scheme)
+    print(s)
+
+    his = await api.get_intra_eod("NIFTY-1","20210603", "20210604", "5")
+    print("History : ",his)
+
+    syms = ['NIFTY-1', 'BANKNIFTY-1']
+    symsGreeks = ["BANKNIFTY2290126500CE"]
+    await api.subscribeAll(syms)
+    # await api.subscribeOptionChain('NIFTY','20220901')
+    # await api.subscribeGreeks(symsGreeks)
+    # await api.subscribeOptionChainRange('NIFTY','20220901',3)
+    print("Subscribe Done")
+    #needSnapshot = False
+    #await api.subscribeSegments(needSnapshot)
+    #time.sleep(5)
+    # await api.unsubscribeAll(['NIFTY-1'])
+    # await api.unsubscribeGreeks(['BANKNIFTY2290126500CE'])
+    # await api.unsubscribeOptionChain('NIFTY','20220901')
+
+def on_trade(msg):
+    trd = apidata_models.Trade(msg)
+    print("Trade : ",msg) # or print(trd.volume) likewise object can be called for id, kind, ticker, segment, price, qty, oi
+
+def on_best(msg):
+    bst = apidata_models.Best(msg)
+    print("Best : ",msg) # or print(bst.bidPrice) likewise object can be called for ticker, segmentId, kind, bidQty, askPrice, askQty
+
+def on_refs(msg):
+    ref = apidata_models.Refs(msg)
+    print("Refs snapshot : ",msg) # or print(ref.price) likewise object can be called for segmentId, kind, ticker
+
+def on_srefs(msg):
+    sref = apidata_models.RefsSnapshot(msg)
+    print("Refs update : ",msg) # or print(sref.high) likewise object can be called for kind, ticker, segmentId, open, close, low, avg, oi, lowerBand,upperBand
+
+def on_tradeSnapshot(msg):
+    trdSnap = apidata_models.Trade(msg)
+    print("TradeSnap : ",msg) # or print(trdSnap.volume) likewise object can be called for id, kind, ticker, segment, price, qty, oi
+
+def on_greeks(msg):
+    greeks = apidata_models.Greeks(msg)
+    print("OptionGreeks : ",msg) # or print(greeks.gamma) likewise object can be called for kind, ticker, iv, delta, theta, vega, gamma, ivvwap, vanna, charm, speed, zomma, color, volga, veta, tgr, tv and dtr
+
+def on_greekSnapshot(msg):
+    gr = apidata_models.Greeks(msg)
+    print(msg) # or print(greeks.gamma) likewise object can be called for kind, ticker, iv, delta, theta, vega, gamma, ivvwap, vanna, charm, speed, zomma, color, volga, veta, tgr, tv and dtr
+
+def connection_started():
+    print("Connection started callback")
+
+def connection_stopped():
+    print("Connection stopped callback")
+  
+event_loop.create_task(main())
+try:
+   event_loop.run_forever()
+finally:
+   event_loop.close()
+```
+### Powered by ticAnalytics®
+
