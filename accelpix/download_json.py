@@ -1,7 +1,11 @@
 import requests
 import pandas as pd
+from configparser import ConfigParser
 
-url = "https://apidata5.accelpix.in/api/hsd/Masters/2?fmt=json"
+config = ConfigParser()
+config.read("config.ini")
+
+url = config.get("accelpix", "instruments_endpoint")
 
 result = requests.get(url)
 data = result.json()

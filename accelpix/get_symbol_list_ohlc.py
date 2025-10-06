@@ -1,26 +1,22 @@
-#!/usr/bin/env python3
-"""
-Updated script: collects instruments from Redis (various keys), dedupes,
-and classifies symbols robustly into F&O or non-F&O.
 
-Outputs:
- - instrument_list_ohlc.csv   (full deduped list)
- - xts_fno_only.csv           (only futures & options: exchangeInstrumentID,symbol)
- - xts_non_fno.csv            (non-F&O rows with reason)
-"""
 import json
 import csv
 import re
 from pathlib import Path
 
 import redis
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read("config.ini")
+
 
 # ===== Redis connection (hardcoded as in your code) =====
 redis_client = redis.Redis(
-    host='172.16.162.133',
-    port=6379,
+    host=config.get("parallel_candle_service", "PING_REDIS_HOST"),
+    port=config.getint("parallel_candle_service", "PING_REDIS_PORT"),
     db=9,
-    password='mudraksh',
+    password=config.get("parallel_candle_service", "PING_REDIS_PASSWORD"),
     decode_responses=True
 )
 

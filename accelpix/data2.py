@@ -29,7 +29,7 @@ REDIS_PASSWORD = config.get("database", "REDIS_PASSWORD")
 
 MONGO_URI = config.get("database", "MONGO_URI")
 REDIS_PATTERN = "dv1:*"
-MONGO_DB = "Accelpix_Candle_data"
+MONGO_DB = "Accelpix_Candle_Data"
 MONGO_COLL = "OHLC_MINUTE_1"
 
 MAX_CONCURRENCY = 100

@@ -1,8 +1,8 @@
 
-cd /root/parallel_candle/accelpix
+cd /root/ParallelCandles/accelpix
 bash accelpix_data.sh
 
 bash parallel_candle.sh
 
-cd /root/parallel_candle/truedata
+cd /root/ParallelCandles/truedata
 bash truedata.sh

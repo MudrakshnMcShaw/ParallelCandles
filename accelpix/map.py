@@ -1,6 +1,10 @@
 import csv
 import json
 import redis
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read("config.ini")
 
 # --- Hardcoded values for testing ---
 XTS_CSV_PATH = "instrument_list_ohlc.csv"
@@ -28,10 +32,10 @@ print(f"Loaded {len(provider_data)} entries from provider JSON")
 
 # --- Connect to Redis ---
 r = redis.Redis(
-    host='139.5.189.229',
-    port=6379,
+    host=config.get("parallel_candle_service", "REDIS_HOST"),
+    port=config.getint("parallel_candle_service", "REDIS_PORT"),
     db=8,
-    password='mudraksh_test',
+    password=config.get("parallel_candle_service", "REDIS_PASSWORD"),
     decode_responses=True
 )
 

@@ -6,12 +6,20 @@ from pathlib import Path
 
 import redis
 
+
+import redis
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read("config.ini")
+
+
 # ===== Redis connection (hardcoded as in your code) =====
 redis_client = redis.Redis(
-    host='172.16.162.133',
-    port=6379,
+    host=config.get("parallel_candle_service", "PING_REDIS_HOST"),
+    port=config.getint("parallel_candle_service", "PING_REDIS_PORT"),
     db=9,
-    password='mudraksh',
+    password=config.get("parallel_candle_service", "PING_REDIS_PASSWORD"),
     decode_responses=True
 )
 
