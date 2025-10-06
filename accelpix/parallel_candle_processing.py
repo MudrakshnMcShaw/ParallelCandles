@@ -460,13 +460,47 @@ def ask_shutdown(signum=None, frame=None):
     logger.info("Shutdown requested...")
 
 
+# if __name__ == "__main__":
+#     signal.signal(signal.SIGINT, ask_shutdown)
+#     signal.signal(signal.SIGTERM, ask_shutdown)
+
+#     loop = asyncio.get_event_loop()
+#     try:
+#         loop.run_until_complete(minute_scheduler_loop())
+#     finally:
+#         loop.close()
+#         logger.info("Consolidator exiting")
+
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, ask_shutdown)
     signal.signal(signal.SIGTERM, ask_shutdown)
 
     loop = asyncio.get_event_loop()
-    try:
-        loop.run_until_complete(minute_scheduler_loop())
-    finally:
-        loop.close()
-        logger.info("Consolidator exiting")
+
+    while not SHUTDOWN:
+        now = now_ist()
+        start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+
+        # Skip weekends
+        if now.weekday() >= 5:
+            logger.info("Weekend detected — sleeping for 1 hour.")
+            time.sleep(3600)
+            continue
+
+        # If current time is within market hours → run the scheduler
+        if start_time <= now <= end_time:
+            logger.info("Market open — starting minute scheduler loop.")
+            try:
+                loop.run_until_complete(minute_scheduler_loop())
+            except Exception as e:
+                logger.error(f"Scheduler loop error: {e}")
+            finally:
+                logger.info("Minute scheduler exited — waiting for next minute.")
+                time.sleep(5)
+        else:
+            logger.info("Market closed — sleeping until next check.")
+            time.sleep(60)  # check again after a minute
+
+    loop.close()
+    logger.info("Consolidator exiting.")

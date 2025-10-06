@@ -37,9 +37,32 @@ REQUEST_TIMEOUT = 8
 
 IST = pytz.timezone("Asia/Kolkata")
 
-# ── LOGGING ───────────────────────────────────────────────────────────────────
-logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(asctime)s %(message)s")
+import os
+import logging
+from logging.handlers import RotatingFileHandler
+
+# ── LOGGING ────────────────────────────────────────────────────────────────
+LOG_DIR = "logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+
+LOG_FILE = os.path.join(LOG_DIR, "accelpix.log")
+
+# Create a rotating file handler — 10 MB per file, keep 5 backups
+file_handler = RotatingFileHandler(LOG_FILE, maxBytes=10_000_000, backupCount=5)
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(logging.Formatter("[%(levelname)s] %(asctime)s %(message)s"))
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(logging.Formatter("[%(levelname)s] %(asctime)s %(message)s"))
+
+# Configure root logger
+logging.basicConfig(level=logging.INFO, handlers=[file_handler, console_handler])
+
 log = logging.getLogger("poller")
+log.info("Logging initialized. Writing to %s", LOG_FILE)
+
 
 SHUTDOWN = False
 
@@ -207,13 +230,63 @@ def _setup_signals(loop: asyncio.AbstractEventLoop):
     for s in (signal.SIGINT, signal.SIGTERM):
         loop.add_signal_handler(s, _ask_shutdown)
 
+# async def main():
+#     tickers = load_tickers_from_redis()
+#     if not tickers:
+#         log.error("No tickers found")
+#         return
+#     log.info("Loaded %d tickers", len(tickers))
+#     await poll_loop(tickers)
+
+
 async def main():
-    tickers = load_tickers_from_redis()
-    if not tickers:
-        log.error("No tickers found")
-        return
-    log.info("Loaded %d tickers", len(tickers))
-    await poll_loop(tickers)
+    while not SHUTDOWN:
+        now = ist_now()
+        weekday = now.weekday()  # Monday=0, Sunday=6
+        start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+
+        # Weekend check (Saturday=5, Sunday=6)
+        if weekday >= 5:
+            log.info("Weekend (%s). Sleeping until Monday 09:15:30...", now.strftime("%A"))
+            # compute next Monday 9:15:30
+            days_ahead = (7 - weekday)
+            next_start = start_time + timedelta(days=days_ahead)
+            sleep_seconds = (next_start - now).total_seconds()
+            await asyncio.sleep(max(0, sleep_seconds))
+            continue
+
+        # Before market open
+        if now < start_time:
+            sleep_seconds = (start_time - now).total_seconds()
+            log.info("Market not open yet (%.1fs to go)...", sleep_seconds)
+            await asyncio.sleep(sleep_seconds)
+            continue
+
+        # After market close
+        if now > end_time:
+            log.info("Market closed. Sleeping until next open...")
+            next_start = start_time + timedelta(days=1)
+            # skip weekends automatically
+            while next_start.weekday() >= 5:
+                next_start += timedelta(days=1)
+            sleep_seconds = (next_start - now).total_seconds()
+            await asyncio.sleep(sleep_seconds)
+            continue
+
+        #Inside allowed window
+        tickers = load_tickers_from_redis()
+        if not tickers:
+            log.error("No tickers found.")
+            await asyncio.sleep(60)  # retry every minute
+            continue
+
+        log.info("Market open — starting poll loop for %d tickers.", len(tickers))
+        await poll_loop(tickers)
+
+        # when poll_loop exits (e.g., SHUTDOWN=True), check again
+        log.info("Poll loop exited. Checking schedule again...")
+
 
 if __name__ == "__main__":
     try:

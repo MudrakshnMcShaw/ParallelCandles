@@ -447,15 +447,63 @@ class TrueDataAPIManager():
         if self.ws:
             self.ws.close()
 
+# if __name__ == "__main__":
+#     import os
+
+#     try: 
+#         os.mkdir("./APIResponseLogs")
+#     except Exception as e:
+#         print(e)
+    
+#     logFileName = f'./APIResponseLogs/logfile_{datetime.datetime.now().strftime("%Y%m%dT%H%M%S")}.log'
+
+#     console = logging.StreamHandler()
+#     console.setLevel(logging.WARNING)
+
+#     logging.basicConfig(
+#         level=logging.INFO,
+#         format="[%(levelname)s] %(module)s %(asctime)s %(message)s",
+#         handlers=[
+#             logging.FileHandler(logFileName),
+#             console
+#         ]
+#     )
+
+#     try:
+#         obj = TrueDataAPIManager()
+#         threading.Thread(target=obj.disconnectionChecker).start()
+#     except KeyboardInterrupt:
+#         obj.cleanup()
+#         logging.info("Shutting down gracefully...")
+
 if __name__ == "__main__":
     import os
+    import pytz
+    from datetime import datetime, timedelta
+    import time
 
-    try: 
+    IST = pytz.timezone("Asia/Kolkata")
+
+    def ist_now():
+        return datetime.now(IST)
+
+    def next_market_start(now):
+        """Return the next valid market start datetime (Mon–Fri, 09:15:30 IST)."""
+        next_start = now.replace(hour=9, minute=15, second=30, microsecond=0)
+        if now >= next_start:
+            next_start += timedelta(days=1)
+        # Skip weekends
+        while next_start.weekday() >= 5:
+            next_start += timedelta(days=1)
+        return next_start
+
+    # Setup log directory
+    try:
         os.mkdir("./APIResponseLogs")
     except Exception as e:
         print(e)
     
-    logFileName = f'./APIResponseLogs/logfile_{datetime.datetime.now().strftime("%Y%m%dT%H%M%S")}.log'
+    logFileName = f'./APIResponseLogs/logfile_{datetime.now().strftime("%Y%m%dT%H%M%S")}.log'
 
     console = logging.StreamHandler()
     console.setLevel(logging.WARNING)
@@ -469,9 +517,55 @@ if __name__ == "__main__":
         ]
     )
 
-    try:
-        obj = TrueDataAPIManager()
-        threading.Thread(target=obj.disconnectionChecker).start()
-    except KeyboardInterrupt:
-        obj.cleanup()
-        logging.info("Shutting down gracefully...")
+    while True:
+        now = ist_now()
+        weekday = now.weekday()  # Monday=0, Sunday=6
+        start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+
+        if weekday >= 5:  # Saturday or Sunday
+            logging.info(f"Weekend ({now.strftime('%A')}). Sleeping until Monday 09:15:30...")
+            next_start = next_market_start(now)
+            time.sleep((next_start - now).total_seconds())
+            continue
+
+        if now < start_time:
+            sleep_seconds = (start_time - now).total_seconds()
+            logging.info(f"Market not open yet. Sleeping for {sleep_seconds:.1f} seconds...")
+            time.sleep(sleep_seconds)
+            continue
+
+        if now > end_time:
+            logging.info("Market closed. Sleeping until next open window...")
+            next_start = next_market_start(now)
+            time.sleep((next_start - now).total_seconds())
+            continue
+
+        # ✅ Inside allowed window — run the API Manager
+        try:
+            obj = TrueDataAPIManager()
+            threading.Thread(target=obj.disconnectionChecker).start()
+            logging.info("TrueDataAPIManager started during market hours.")
+        except KeyboardInterrupt:
+            obj.cleanup()
+            logging.info("Shutting down gracefully...")
+            break
+        except Exception as e:
+            logging.error(f"Unexpected error: {e}")
+
+        # Keep checking if market still open
+        while True:
+            now = ist_now()
+            if now > end_time:
+                logging.info("Market hours ended. Cleaning up TrueDataAPIManager...")
+                try:
+                    obj.cleanup()
+                except Exception as e:
+                    logging.error(f"Cleanup failed: {e}")
+                break
+            time.sleep(30)  # Check every 30 seconds
+
+        # Sleep until next day
+        next_start = next_market_start(ist_now())
+        logging.info(f"Sleeping until next market open: {next_start}")
+        time.sleep((next_start - ist_now()).total_seconds())
