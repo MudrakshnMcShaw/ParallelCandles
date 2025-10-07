@@ -14,17 +14,16 @@ class TrueDataAPIManager():
 
     def __init__(self):
         configReader = ConfigParser()
-        configReader.read('config.ini')
+        configReader.read('/root/ParallelCandles/config.ini')
         configReaderPass = ConfigParser()
-        configReaderPass.read('config.ini')
-        mongoHost = configReader.get('mongoParams','ip'), 
-        mongoPort = int(configReader.get('mongoParams','port'))
-        connPostData = MongoClient(host=mongoHost, port=mongoPort)
+        configReaderPass.read('/root/ParallelCandles/config.ini')
+        mongo_uri = configReader.get('local_db','MONGO_URI'), 
+        connPostData = MongoClient(mongo_uri)
         self.db_cloud = connPostData['True_Data_Candle_Data']['OHLC_MINUTE_1']
         websocket.enableTrace(True)
-        self.username = configReader.get('loginDetails','userID')
-        self.password = configReader.get('loginDetails','password')
-        self.port = configReader.get('loginDetails','port')
+        self.username = configReader.get('truedata','userID')
+        self.password = configReader.get('truedata','password')
+        self.port = configReader.get('truedata','port')
         self.messageQueue1 = queue.Queue(maxsize=2000)
         self.messageQueue2 = queue.Queue(maxsize=2000)
         self.redisQueue = 'trueDataQueue'
@@ -54,18 +53,19 @@ class TrueDataAPIManager():
         
         self.candleCuttOffTime = 62
         self.symIdMap = {}
-        redisHost = configReader.get('redisParams', 'ip')
-        redisPort = int(configReader.get('redisParams', 'port'))
+        redisHost = configReader.get('local_db', 'REDIS_HOST')
+        redisPort = int(configReader.get('local_db', 'REDIS_PORT'))
+        redisPass = configReaderPass.get('local_db', 'REDIS_PASSWORD')
 
         self.redisConn_cloud = Redis(db=int(configReader.get('redisParams','db')), decode_responses=True,
                                     host=redisHost, port=redisPort,
-                                    password= "mudraksh_test" )
+                                    password= redisPass )
         self.symConn = Redis(db=0, decode_responses=True,
                                     host=redisHost, port=redisPort,
-                                    password= "mudraksh_test")
+                                    password= redisPass)
         self.pingConn = Redis(db=int(configReader.get('redisParams','pingdb')), decode_responses=True,
                                     host=redisHost, port=redisPort,
-                                    password= "mudraksh_test")
+                                    password= redisPass)
         
         ## YYMMDD --->  DDMonthInShortYY FOR WEEKLY AND MONTHLY EXPIRY
         self.expiryMap = json.loads(configReader.get('expiryDetails','expiryMap'))
@@ -521,7 +521,7 @@ if __name__ == "__main__":
         now = ist_now()
         weekday = now.weekday()  # Monday=0, Sunday=6
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
 
         if weekday >= 5:  # Saturday or Sunday
             logging.info(f"Weekend ({now.strftime('%A')}). Sleeping until Monday 09:15:30...")

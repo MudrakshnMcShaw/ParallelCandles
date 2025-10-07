@@ -15,20 +15,20 @@ import logging
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read("config.ini")
+config.read("/root/ParallelCandles/config.ini")
 
 # API config
 BASE_URL = config.get("accelpix", "base_url")
 API_TOKEN = config.get("accelpix", "api_key")
 
 # Redis config
-REDIS_HOST = config.get("database", "REDIS_HOST")
-REDIS_PORT = config.getint("database", "REDIS_PORT")
-REDIS_DB = config.getint("database", "REDIS_DB")
-REDIS_PASSWORD = config.get("database", "REDIS_PASSWORD")
-
-MONGO_URI = config.get("database", "MONGO_URI")
+REDIS_HOST = config.get("local_db", "REDIS_HOST")
+REDIS_PORT = config.getint("local_db", "REDIS_PORT")
+REDIS_DB = config.getint("local_db", "REDIS_DB")
+REDIS_PASSWORD = config.get("local_db", "REDIS_PASSWORD")
 REDIS_PATTERN = "dv1:*"
+
+MONGO_URI = config.get("local_db", "MONGO_URI")
 MONGO_DB = "Accelpix_Candle_Data"
 MONGO_COLL = "OHLC_MINUTE_1"
 
@@ -230,21 +230,12 @@ def _setup_signals(loop: asyncio.AbstractEventLoop):
     for s in (signal.SIGINT, signal.SIGTERM):
         loop.add_signal_handler(s, _ask_shutdown)
 
-# async def main():
-#     tickers = load_tickers_from_redis()
-#     if not tickers:
-#         log.error("No tickers found")
-#         return
-#     log.info("Loaded %d tickers", len(tickers))
-#     await poll_loop(tickers)
-
-
 async def main():
     while not SHUTDOWN:
         now = ist_now()
         weekday = now.weekday()  # Monday=0, Sunday=6
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
 
         # Weekend check (Saturday=5, Sunday=6)
         if weekday >= 5:

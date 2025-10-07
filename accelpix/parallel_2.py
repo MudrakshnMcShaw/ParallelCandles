@@ -17,13 +17,13 @@ import logging
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read("config.ini")
+config.read("/root/ParallelCandles/config.ini")
 
 # -------------------- CONFIG --------------------
 IST = pytz.timezone("Asia/Kolkata")
 
 # Primary Mongo for DB1/DB2 (can be local or one URI)
-MONGO_URI = config.get("parallel_candle_service", "MONGO_URI")
+MONGO_URI = config.get("local_db", "MONGO_URI")
 
 # DB1 (TrueData)
 DB1_NAME = "True_Data_Candle_Data"
@@ -34,32 +34,27 @@ DB2_NAME = "Accelpix_Candle_Data"
 DB2_COLL =  "OHLC_MINUTE_1"
 
 # DB3 (consolidated)
-MONGO_DB3_URI = config.get("parallel_candle_service", "MONGO_DB3_URI")
-
-MONGO_DB3_HOST = config.get("parallel_candle_service", "MONGO_DB3_HOST")
-MONGO_DB3_PORT = config.get("parallel_candle_service", "MONGO_DB3_PORT")
-MONGO_DB3_USER = config.get("parallel_candle_service", "MONGO_DB3_USER")
-MONGO_DB3_PASS = config.get("parallel_candle_service", "MONGO_DB3_PASS")
+MONGO_DB3_URI = config.get("live_db", "MONGO_URI")
 DB3_NAME = "CandleData"
 DB3_COLL = "OHLC_MINUTE_1"
 
 # Redis for instrument list (CSV preferred, but kept)
-REDIS_HOST = config.get("parallel_candle_service", "REDIS_HOST")
-REDIS_PORT = config.get("parallel_candle_service", "REDIS_PORT")
-REDIS_DB = config.get("parallel_candle_service", "REDIS_DB")
-REDIS_PASSWORD = config.get("parallel_candle_service", "REDIS_PASSWORD")
-REDIS_PATTERN = os.getenv("REDIS_PATTERN", "dv1:*")
+REDIS_HOST = config.get("live_db", "REDIS_HOST")
+REDIS_PORT = config.get("live_db", "REDIS_PORT")
+REDIS_DB = config.get("live_db", "REDIS_DB")
+REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
+REDIS_PATTERN = "dv1:*"
 
 # Redis endpoints where we set DONE and ping keys
-DONE_REDIS_HOST = config.get("parallel_candle_service", "DONE_REDIS_HOST")
-DONE_REDIS_PORT = config.get("parallel_candle_service", "DONE_REDIS_PORT")
-DONE_REDIS_DB = config.get("parallel_candle_service", "DONE_REDIS_DB")
-DONE_REDIS_PASSWORD = config.get("parallel_candle_service", "DONE_REDIS_PASSWORD")
+DONE_REDIS_HOST = config.get("live_db", "REDIS_HOST")
+DONE_REDIS_PORT = config.get("live_db", "REDIS_PORT")
+DONE_REDIS_DB = config.get("live_db", "REDIS_DB")
+DONE_REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
 
-PING_REDIS_HOST = config.get("parallel_candle_service", "PING_REDIS_HOST")
-PING_REDIS_PORT = config.get("parallel_candle_service", "PING_REDIS_PORT")
-PING_REDIS_DB = config.get("parallel_candle_service", "PING_REDIS_DB")
-PING_REDIS_PASSWORD = config.get("parallel_candle_service", "PING_REDIS_PASSWORD")
+PING_REDIS_HOST = config.get("live_db", "REDIS_HOST")
+PING_REDIS_PORT = config.get("live_db", "REDIS_PORT")
+PING_REDIS_DB = config.get("live_db", "REDIS_DB")
+PING_REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
 
 # TTL for DONE flag (seconds)
 DONE_KEY_TTL = int(os.getenv("DONE_KEY_TTL", "10"))
@@ -381,29 +376,6 @@ def load_symbols_from_csv() -> List[str]:
 
     return out
 
-
-def build_db3_uri() -> str:
-    """Build DB3 URI from either MONGO_DB3_URI (preferred) or individual parts."""
-    if MONGO_DB3_URI:
-        logger.info("Using provided MONGO_DB3_URI for DB3")
-        return MONGO_DB3_URI
-
-    if MONGO_DB3_HOST:
-        userpass = ""
-        if MONGO_DB3_USER:
-            userpass = MONGO_DB3_USER
-            if MONGO_DB3_PASS:
-                userpass = f"{userpass}:{MONGO_DB3_PASS}"
-            userpass = f"{userpass}@"
-        port = f":{MONGO_DB3_PORT}" if MONGO_DB3_PORT else ""
-        uri = f"mongodb://{userpass}{MONGO_DB3_HOST}{port}"
-        logger.info(f"Constructed DB3 URI for host {MONGO_DB3_HOST}")
-        return uri
-
-    logger.info("Falling back to MONGO_URI for DB3")
-    return MONGO_URI
-
-
 async def minute_scheduler_loop():
     global SHUTDOWN
 
@@ -413,7 +385,7 @@ async def minute_scheduler_loop():
     db2_coll = client_main[DB2_NAME][DB2_COLL]
 
     # DB3 client/URI
-    db3_uri = build_db3_uri()
+    db3_uri = MONGO_DB3_URI
     client_db3 = AsyncIOMotorClient(db3_uri)
     db3_coll = client_db3[DB3_NAME][DB3_COLL]
 
@@ -481,18 +453,6 @@ def ask_shutdown(signum=None, frame=None):
     SHUTDOWN = True
     logger.info("Shutdown requested...")
 
-
-# if __name__ == "__main__":
-#     signal.signal(signal.SIGINT, ask_shutdown)
-#     signal.signal(signal.SIGTERM, ask_shutdown)
-
-#     loop = asyncio.get_event_loop()
-#     try:
-#         loop.run_until_complete(minute_scheduler_loop())
-#     finally:
-#         loop.close()
-#         logger.info("Consolidator exiting")
-
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, ask_shutdown)
     signal.signal(signal.SIGTERM, ask_shutdown)
@@ -502,7 +462,7 @@ if __name__ == "__main__":
     while not SHUTDOWN:
         now = now_ist()
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=15, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
 
         # Skip weekends
         if now.weekday() >= 5:

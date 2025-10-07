@@ -4,7 +4,7 @@ import redis
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read("config.ini")
+config.read("/root/ParallelCandles/config.ini")
 
 # --- Hardcoded values for testing ---
 XTS_CSV_PATH = "instrument_list_ohlc.csv"
@@ -32,10 +32,10 @@ print(f"Loaded {len(provider_data)} entries from provider JSON")
 
 # --- Connect to Redis ---
 r = redis.Redis(
-    host=config.get("parallel_candle_service", "REDIS_HOST"),
-    port=config.getint("parallel_candle_service", "REDIS_PORT"),
+    host=config.get("local_db", "REDIS_HOST"),
+    port=config.getint("local_db", "REDIS_PORT"),
     db=8,
-    password=config.get("parallel_candle_service", "REDIS_PASSWORD"),
+    password=config.get("local_db", "REDIS_PASSWORD"),
     decode_responses=True
 )
 

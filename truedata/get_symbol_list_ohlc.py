@@ -11,15 +11,15 @@ import redis
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read("config.ini")
+config.read("/root/ParallelCandles/config.ini")
 
 
 # ===== Redis connection (hardcoded as in your code) =====
 redis_client = redis.Redis(
-    host=config.get("parallel_candle_service", "PING_REDIS_HOST"),
-    port=config.getint("parallel_candle_service", "PING_REDIS_PORT"),
+    host=config.get("symbol_list_db", "REDIS_HOST"),
+    port=config.getint("symbol_list_db", "REDIS_PORT"),
     db=9,
-    password=config.get("parallel_candle_service", "PING_REDIS_PASSWORD"),
+    password=config.get("symbol_list_db", "REDIS_PASSWORD"),
     decode_responses=True
 )
 
