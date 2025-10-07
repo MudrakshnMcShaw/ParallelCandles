@@ -103,7 +103,7 @@ def minute_epoch_for_prev_minute(ts: datetime) -> int:
     return int(prev.timestamp())
 
 
-def normalize_epoch_s(ts: int | float) -> int:
+def normalize_epoch_s(ts: int) -> int:
     """Ensure unix seconds (not ms)."""
     ts = int(ts)
     if ts > 1_000_000_000_000:  # ms

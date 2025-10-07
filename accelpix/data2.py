@@ -70,7 +70,7 @@ SHUTDOWN = False
 def ist_now() -> datetime:
     return datetime.now(IST)
 
-def prev_minute_window() -> tuple[datetime, datetime]:
+def prev_minute_window() -> tuple:
     start = ist_now().replace(second=0, microsecond=0) - timedelta(minutes=1)
     end = start.replace(second=59, microsecond=0)
     return start, end
