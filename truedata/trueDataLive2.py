@@ -521,7 +521,7 @@ if __name__ == "__main__":
         now = ist_now()
         weekday = now.weekday()  # Monday=0, Sunday=6
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=30, second=30, microsecond=0)
 
         if weekday >= 5:  # Saturday or Sunday
             logging.info(f"Weekend ({now.strftime('%A')}). Sleeping until Monday 09:15:30...")

@@ -462,7 +462,7 @@ if __name__ == "__main__":
     while not SHUTDOWN:
         now = now_ist()
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=30, second=30, microsecond=0)
 
         # Skip weekends
         if now.weekday() >= 5:

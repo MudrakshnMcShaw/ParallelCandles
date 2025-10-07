@@ -235,7 +235,7 @@ async def main():
         now = ist_now()
         weekday = now.weekday()  # Monday=0, Sunday=6
         start_time = now.replace(hour=9, minute=15, second=30, microsecond=0)
-        end_time = now.replace(hour=23, minute=31, second=30, microsecond=0)
+        end_time = now.replace(hour=15, minute=30, second=30, microsecond=0)
 
         # Weekend check (Saturday=5, Sunday=6)
         if weekday >= 5:
