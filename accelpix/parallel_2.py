@@ -31,7 +31,7 @@ DB1_COLL = "OHLC_MINUTE_1"
 
 # DB2 (Accelpix)
 DB2_NAME = "Accelpix_Candle_Data"
-DB2_COLL =  "OHLC_MINUTE_1"
+DB2_COLL = "OHLC_MINUTE_1"
 
 # DB3 (consolidated)
 MONGO_DB3_URI = config.get("live_db", "MONGO_URI")
@@ -236,17 +236,55 @@ async def check_and_consolidate_for_symbol(symbol: str, minute_epoch: int,
     return None
 
 
+# ------------------ UPDATED run_cycle: Redis-first flow ------------------
 async def run_cycle(symbols: List[str], minute_epoch: int,
                     db1_coll, db2_coll, db3_coll,
                     redis_done_client: Optional[redis.Redis], redis_ping_client: Optional[redis.Redis]):
     """
-    Run primary pass + retry; collect found docs then bulk upsert into db3 and pipeline redis updates.
+    Redis-first flow:
+      1) Batch-check DONE in Redis and skip symbols that are already DONE.
+      2) For remaining symbols, check DB1/DB2 and collect docs.
+      3) Re-check DONE just before write (race mitigation).
+      4) Bulk upsert remaining docs into DB3 and set DONE + ping only for those.
     """
-    missing: List[str] = []
     sem = asyncio.Semaphore(MAX_CONCURRENCY)
-    results_store = []  # list of (symbol, doc, source)
+    loop = asyncio.get_running_loop()
 
-    async def _worker(sym: str):
+    # 1) Redis DONE first-pass (batch)
+    candidate_symbols = list(symbols)  # all symbols we intend to consider
+    symbols_to_check = candidate_symbols[:]  # will be reduced if DONE present
+    skipped_by_done = []
+
+    if redis_done_client:
+        try:
+            # run mget in threadpool to avoid blocking event loop
+            def mget_keys(client, keys):
+                # client.mget accepts a list; returns list aligned with keys
+                return client.mget(keys)
+            done_vals = await loop.run_in_executor(None, mget_keys, redis_done_client, symbols_to_check)
+            # done_vals aligned with symbols_to_check; non-None => DONE exists
+            remaining = []
+            for s, v in zip(symbols_to_check, done_vals):
+                if v is not None:
+                    skipped_by_done.append(s)
+                else:
+                    remaining.append(s)
+            symbols_to_check = remaining
+            logger.info(f"Redis-first filter: skipped {len(skipped_by_done)} symbols already DONE")
+        except Exception as e:
+            logger.info(f"Redis DONE batch-check failed (falling back to DB checks): {e}")
+            # fall back to checking all symbols
+            symbols_to_check = candidate_symbols[:]
+    else:
+        # No redis client -> check all symbols
+        symbols_to_check = candidate_symbols[:]
+        logger.info("No DONE Redis client available; will check DBs for all symbols")
+
+    # 2) For remaining symbols (not DONE), query DB1/DB2 concurrently to find candles
+    results_store = []  # list of (symbol, doc, source)
+    missing: List[str] = []
+
+    async def _worker_check(sym: str):
         async with sem:
             try:
                 found = await check_and_consolidate_for_symbol(sym, minute_epoch, db1_coll, db2_coll)
@@ -259,15 +297,20 @@ async def run_cycle(symbols: List[str], minute_epoch: int,
                 missing.append(sym)
 
     t0 = time.time()
-    await asyncio.gather(*(_worker(s) for s in symbols))
-    t_primary = time.time() - t0
-    logger.info(f"Primary pass finished in {t_primary:.3f}s; found {len(results_store)} docs, {len(missing)} missing")
+    # if there are no symbols to check (all were DONE), we can exit early
+    if not symbols_to_check:
+        logger.info("All symbols were DONE in Redis; skipping DB checks and DB3 upsert")
+        return
 
-    # Retry missing once at ~+3s of the *current* minute (fixes earlier timing bug)
+    await asyncio.gather(*(_worker_check(s) for s in symbols_to_check))
+    t_primary = time.time() - t0
+    logger.info(f"DB1/DB2 checks finished in {t_primary:.3f}s; found {len(results_store)} docs, {len(missing)} missing")
+
+    # Retry missing once (existing behavior)
     if missing:
         before = len(results_store)
         curr_minute_start = now_ist().replace(second=0, microsecond=0)
-        target_retry_time = curr_minute_start + timedelta(seconds=1.5)
+        target_retry_time = curr_minute_start + timedelta(seconds=1)
         wait = (target_retry_time - now_ist()).total_seconds()
         if wait > 0:
             await asyncio.sleep(wait)
@@ -294,14 +337,59 @@ async def run_cycle(symbols: List[str], minute_epoch: int,
             for s in retry_missing:
                 logger.warning(f"NOT FOUND after retry: {s} @ {datetime.fromtimestamp(minute_epoch, IST).strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Nothing to push?
+    # Nothing found after DB checks -> nothing to push
     if not results_store:
-        logger.info("No docs to push to DB3 this cycle")
+        logger.info("No docs found in DB1/DB2 for non-DONE symbols — nothing to upsert to DB3")
         return
 
-    # Bulk upserts to DB3 (unordered)
+    # Build candidates_map from results_store
+    candidates_map: Dict[str, Dict] = {sym: {"doc": doc, "source": source} for sym, doc, source in results_store}
+
+    # 3) Re-check Redis DONE immediately before write to reduce races
+    if redis_done_client and candidates_map:
+        try:
+            keys = list(candidates_map.keys())
+            def mget_keys_local(client, keys):
+                return client.mget(keys)
+            done_vals = await loop.run_in_executor(None, mget_keys_local, redis_done_client, keys)
+            to_remove = []
+            for k, v in zip(keys, done_vals):
+                if v is not None:
+                    to_remove.append(k)
+            for k in to_remove:
+                candidates_map.pop(k, None)
+            if to_remove:
+                logger.info(f"Removed {len(to_remove)} candidates that became DONE before write: {to_remove[:10]}")
+        except Exception as e:
+            logger.info(f"Redis DONE re-check failed: {e}")
+
+    if not candidates_map:
+        logger.info("All candidates became DONE before upsert — skipping DB3 upsert")
+        return
+
+    # 4) Optional defensive DB3 existence check for remaining candidates (can be omitted)
+    remaining_symbols = list(candidates_map.keys())
+    if remaining_symbols:
+        found_in_db3 = set()
+        async def _check_db3(sym: str):
+            doc = await find_candle_in_db(db3_coll, sym, minute_epoch)
+            if doc:
+                found_in_db3.add(sym)
+        await asyncio.gather(*(_check_db3(s) for s in remaining_symbols))
+        if found_in_db3:
+            for s in found_in_db3:
+                candidates_map.pop(s, None)
+            logger.info(f"Filtered {len(found_in_db3)} symbols already present in DB3: {list(found_in_db3)[:10]}")
+
+    if not candidates_map:
+        logger.info("No candidates left after DB3 existence checks — skipping DB3 upsert")
+        return
+
+    # 5) Build bulk upsert ops for DB3
     bulk_ops = []
-    for sym, doc, source in results_store:
+    docs_for_redis = []
+    for sym, info in candidates_map.items():
+        doc = info["doc"]
         ts = parse_possible_ts_from_doc(doc)
         symbol = doc.get("Symbol") or doc.get("provider_tkr") or doc.get("symbol") or doc.get("sym")
         if not symbol or ts is None:
@@ -311,44 +399,46 @@ async def run_cycle(symbols: List[str], minute_epoch: int,
         filter_q = {"Symbol": symbol, "LastTradeTime": ts}
         update_q = {"$set": doc_copy}
         bulk_ops.append(UpdateOne(filter_q, update_q, upsert=True))
+        docs_for_redis.append((symbol, ts))
 
+    # 6) Bulk write into DB3
     t_bulk_start = time.time()
     try:
         if bulk_ops:
             res = await db3_coll.bulk_write(bulk_ops, ordered=False)
             logger.info(
-                f"Bulk upsert complete: matched={res.matched_count}, "
-                f"upserted={len(getattr(res, 'upserted_ids', []) or [])}, "
-                f"modified={res.modified_count}"
+                f"Bulk upsert complete: matched={getattr(res,'matched_count','N/A')}, "
+                f"upserted={len(getattr(res,'upserted_ids',[]) or [])}, "
+                f"modified={getattr(res,'modified_count','N/A')}"
             )
     except Exception as e:
         logger.info(f"DB3 bulk_write failed: {e}")
 
-    # Redis pipelines (only if clients are available)
-    if redis_done_client or redis_ping_client:
+    # 7) Set Redis DONE + ping for the symbols we actually attempted to upsert
+    if (redis_done_client or redis_ping_client) and docs_for_redis:
         try:
-            pipe_done = redis_done_client.pipeline() if redis_done_client else None
-            pipe_ping = redis_ping_client.pipeline() if redis_ping_client else None
-            for sym, doc, source in results_store:
-                symbol = doc.get("Symbol") or doc.get("provider_tkr") or doc.get("symbol") or doc.get("sym")
-                ts = parse_possible_ts_from_doc(doc)
-                if not symbol:
-                    continue
-                if pipe_done:
-                    pipe_done.set(symbol, "DONE", ex=DONE_KEY_TTL)
-                if pipe_ping and ts is not None:
-                    pipe_ping.set(f"{symbol}_1", ts)
-            if pipe_done:
-                pipe_done.execute()
-            if pipe_ping:
-                pipe_ping.execute()
-            logger.info("Redis pipelines executed for DONE + PING")
+            def do_redis_pipelines(done_client, ping_client, tuples):
+                pd = done_client.pipeline() if done_client else None
+                pp = ping_client.pipeline() if ping_client else None
+                for symbol, ts in tuples:
+                    if pd:
+                        pd.set(symbol, "DONE", ex=DONE_KEY_TTL)
+                    if pp:
+                        pp.set(f"{symbol}_1", ts)
+                if pd:
+                    pd.execute()
+                if pp:
+                    pp.execute()
+            await loop.run_in_executor(None, do_redis_pipelines, redis_done_client, redis_ping_client, docs_for_redis)
+            logger.info("Redis DONE + ping set for newly-upserted symbols")
         except Exception as e:
-            logger.info(f"Redis pipeline error: {e}")
+            logger.info(f"Redis pipeline error for newly-upserted symbols: {e}")
 
     t_bulk_total = time.time() - t_bulk_start
     logger.info(f"Bulk push + redis pipeline took {t_bulk_total:.3f}s for {len(bulk_ops)} ops")
 
+
+# ---------------------------------------------------------------------------
 
 def load_symbols_from_csv() -> List[str]:
     path = INSTRUMENT_CSV
@@ -394,10 +484,15 @@ async def minute_scheduler_loop():
     await ensure_idx_symbol_lut(db2_coll)
     await ensure_idx_symbol_lut(db3_coll)
 
-    # Redis clients (optional)
+    # Redis clients (optional) — cast ports/dbs to int to be safe
     try:
-        redis_done_client = redis.Redis(host=DONE_REDIS_HOST, port=DONE_REDIS_PORT, db=DONE_REDIS_DB,
-                                        password=DONE_REDIS_PASSWORD, decode_responses=True)
+        redis_done_client = redis.Redis(
+            host=DONE_REDIS_HOST,
+            port=int(DONE_REDIS_PORT),
+            db=6,
+            password=DONE_REDIS_PASSWORD,
+            decode_responses=True
+        )
         redis_done_client.ping()
         logger.info(f"Connected to DONE Redis {DONE_REDIS_HOST}:{DONE_REDIS_PORT} db={DONE_REDIS_DB}")
     except Exception as e:
@@ -405,8 +500,13 @@ async def minute_scheduler_loop():
         redis_done_client = None
 
     try:
-        redis_ping_client = redis.Redis(host=PING_REDIS_HOST, port=PING_REDIS_PORT, db=PING_REDIS_DB,
-                                        password=PING_REDIS_PASSWORD, decode_responses=True)
+        redis_ping_client = redis.Redis(
+            host=PING_REDIS_HOST,
+            port=int(PING_REDIS_PORT),
+            db=int(PING_REDIS_DB),
+            password=PING_REDIS_PASSWORD,
+            decode_responses=True
+        )
         redis_ping_client.ping()
         logger.info(f"Connected to PING Redis {PING_REDIS_HOST}:{PING_REDIS_PORT} db={PING_REDIS_DB}")
     except Exception as e:
@@ -486,4 +586,3 @@ if __name__ == "__main__":
 
     loop.close()
     logger.info("Consolidator exiting.")
-

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import websocket
 import threading
 import time
@@ -6,7 +7,8 @@ import queue
 import urllib.request as urllib
 import logging
 import datetime
-from pymongo import MongoClient
+from datetime import timezone, timedelta
+from pymongo import MongoClient, UpdateOne
 from redis import Redis
 from configparser import ConfigParser
 
@@ -17,9 +19,22 @@ class TrueDataAPIManager():
         configReader.read('/root/ParallelCandles/config.ini')
         configReaderPass = ConfigParser()
         configReaderPass.read('/root/ParallelCandles/config.ini')
-        mongo_uri = configReader.get('local_db','MONGO_URI'), 
+
+        # ------------------ Mongo clients ------------------
+        # Fix: do NOT leave trailing commas (they create tuples)
+        mongo_uri = configReader.get('local_db','MONGO_URI')
         connPostData = MongoClient(mongo_uri)
         self.db_cloud = connPostData['True_Data_Candle_Data']['OHLC_MINUTE_1']
+
+        # DB3 (consolidated)
+        mongo_uri_db3 = configReader.get('live_db','MONGO_URI')
+        if mongo_uri_db3:
+            connPostData_DB3 = MongoClient(mongo_uri_db3)
+            # NOTE: use the DB3 client connection here
+            self.db_cloud_db3 = connPostData_DB3['CandleData']['OHLC_MINUTE_1']
+        else:
+            self.db_cloud_db3 = None
+
         websocket.enableTrace(True)
         self.username = configReader.get('truedata','userID')
         self.password = configReader.get('truedata','password')
@@ -33,26 +48,28 @@ class TrueDataAPIManager():
         self.should_reconnect = True
         self.reconnect_delay = 5  # Initial delay in seconds
         self.max_reconnect_delay = 300  # Maximum delay of 5 minutes
-        
+
         logging.info('True data client started in thread')
         self.startAPI()
         logging.critical('Out of start API')
-        
-        threading.Thread(target=self.streamHandler1, args = (1,)).start()
-        threading.Thread(target=self.streamHandler2, args = (1,)).start()
-        
+
+        threading.Thread(target=self.streamHandler1, args = (1,), daemon=True).start()
+        threading.Thread(target=self.streamHandler2, args = (1,), daemon=True).start()
+
         # Wait for initial connection attempt
         retry_count = 0
         while not self.connected and retry_count < 3:
             logging.info("Waiting for initial connection...")
             time.sleep(5)
             retry_count += 1
-            
+
         if not self.connected:
             logging.warning("Initial connection failed, will retry in background")
-        
+
         self.candleCuttOffTime = 62
         self.symIdMap = {}
+
+        # Redis hosts/ports - cast to ints where needed
         redisHost = configReader.get('local_db', 'REDIS_HOST')
         redisPort = int(configReader.get('local_db', 'REDIS_PORT'))
         redisPass = configReaderPass.get('local_db', 'REDIS_PASSWORD')
@@ -66,11 +83,32 @@ class TrueDataAPIManager():
         self.pingConn = Redis(db=int(configReader.get('redisParams','pingdb')), decode_responses=True,
                                     host=redisHost, port=redisPort,
                                     password= redisPass)
-        
+
+        # done_redis_db is where we set DONE flags for DB3 writes (DB 6 in your snippet)
+        # cast port/db to ints to be safe
+        try:
+            done_redis_host = configReader.get('live_db', 'REDIS_HOST')
+            done_redis_port = int(configReader.get('live_db', 'REDIS_PORT'))
+            done_redis_pass = configReader.get('live_db', 'REDIS_PASSWORD')
+        except Exception:
+            done_redis_host = redisHost
+            done_redis_port = redisPort
+            done_redis_pass = redisPass
+
+        # choose DB index 6 as you used previously
+        self.done_redis_db = Redis(db = 6,
+                                   host=done_redis_host,
+                                   port=done_redis_port,
+                                   password=done_redis_pass,
+                                   decode_responses=True)
+
         ## YYMMDD --->  DDMonthInShortYY FOR WEEKLY AND MONTHLY EXPIRY
-        self.expiryMap = json.loads(configReader.get('expiryDetails','expiryMap'))
-        
-        self.subsricptionList = ['NIFTY 50', 'NIFTY BANK', 'NIFTY FIN SERVICE', 'SENSEX']
+        try:
+            self.expiryMap = json.loads(configReader.get('expiryDetails','expiryMap'))
+        except Exception:
+            self.expiryMap = {}
+
+        self.subsricptionList = ['NIFTY 50', 'NIFTY BANK', 'NIFTY FIN SERVICE', 'SENSEX', 'INDIA VIX']
 
         import csv
         self.td_to_orig = {}
@@ -89,7 +127,6 @@ class TrueDataAPIManager():
         except Exception as e:
             print(f"Warning: Could not load converted symbols: {e}")
 
-
         seen = set()
         self.subsricptionList = [s for s in self.subsricptionList if not (s in seen or seen.add(s))]
 
@@ -103,8 +140,11 @@ class TrueDataAPIManager():
     def startAPI(self):
         try:
             if self.ws is not None:
-                self.ws.close()
-                
+                try:
+                    self.ws.close()
+                except Exception:
+                    pass
+
             self.ws = websocket.WebSocketApp(
                 f"wss://push.truedata.in:{self.port}?user={self.username}&password={self.password}",
                 on_message=self.on_message,
@@ -113,7 +153,7 @@ class TrueDataAPIManager():
                 keep_running=False
             )
             self.ws.on_open = self.on_open
-            
+
             def run_websocket():
                 while self.should_reconnect:
                     try:
@@ -127,9 +167,9 @@ class TrueDataAPIManager():
                         logging.error(f"WebSocket run_forever error: {e}")
                         if self.should_reconnect:
                             time.sleep(self.reconnect_delay)
-            
-            threading.Thread(target=run_websocket).start()
-            
+
+            threading.Thread(target=run_websocket, daemon=True).start()
+
         except Exception as e:
             logging.error(f"Error in startAPI: {e}")
             self.connected = False
@@ -255,9 +295,28 @@ class TrueDataAPIManager():
             time.sleep(0.001)
 
 
+    def _parse_candle_time_to_epoch(self, ts_str: str) -> int:
+        """
+        Parse incoming time like 'YYYY-MM-DDTHH:MM:SS' as IST and return epoch seconds.
+        Falls back to time.mktime if necessary.
+        """
+        try:
+            # naive parse and assume IST
+            dt = datetime.datetime.strptime(ts_str, '%Y-%m-%dT%H:%M:%S')
+            # attach IST tz (UTC+5:30) and get epoch
+            ist = timezone(timedelta(hours=5, minutes=30))
+            dt = dt.replace(tzinfo=ist)
+            return int(dt.timestamp())
+        except Exception:
+            try:
+                # fallback
+                return int(time.mktime(time.strptime(ts_str, '%Y-%m-%dT%H:%M:%S')))
+            except Exception:
+                raise
+
     def on_candleData(self, candleBuffer: list):
         """
-        Convert bar1min lists into documents and write to Mongo + Redis.
+        Convert bar1min lists into documents and write to Mongo + DB3 + Redis DONE.
         Uses safe lookups and guarded inserts so exceptions don't halt the pipeline.
         """
         logging.info(f"on_candleData called with {len(candleBuffer)} items")
@@ -281,7 +340,7 @@ class TrueDataAPIManager():
                 td_id = str(candleData[0])
                 ts_str = str(candleData[1])
                 try:
-                    candleTime = int(time.mktime(time.strptime(ts_str, '%Y-%m-%dT%H:%M:%S')))
+                    candleTime = self._parse_candle_time_to_epoch(ts_str)
                 except Exception as e:
                     logging.error(f"Timestamp parse error for {ts_str}: {e}")
                     continue
@@ -317,23 +376,43 @@ class TrueDataAPIManager():
             logging.debug("No valid candles to insert after processing")
             return
 
-        # Bulk insert with try/except
+        # 1) Bulk insert into DB1 (original)
         try:
             res = self.db_cloud.insert_many(insertBuffer)
-            logging.info(f"Inserted {len(res.inserted_ids)} candles to MongoDB")
+            logging.info(f"Inserted {len(res.inserted_ids)} candles to MongoDB DB1")
         except Exception as e:
-            logging.error(f"Mongo insert_many failed: {e}")
-            # do not return — still try to set Redis keys for best-effort downstream signaling
+            logging.error(f"Mongo insert_many failed for DB1: {e}")
+            # continue to DB3 and redis best-effort
 
-        # Set per-symbol DONE flag and ping timestamp in redis (best-effort)
+        # 2) Upsert into DB3 (consolidated), if configured
+        if self.db_cloud_db3 is not None:
+            try:
+                ops = []
+                for doc in insertBuffer:
+                    filt = {"Symbol": doc["Symbol"], "LastTradeTime": doc["LastTradeTime"]}
+                    ops.append(UpdateOne(filt, {"$set": doc}, upsert=True))
+                if ops:
+                    result = self.db_cloud_db3.bulk_write(ops, ordered=False)
+                    # log summary
+                    upserted = len(getattr(result, "upserted_ids", {}) or {})
+                    matched = getattr(result, "matched_count", "N/A")
+                    modified = getattr(result, "modified_count", "N/A")
+                    logging.info(f"DB3 bulk_write done: matched={matched}, upserted={upserted}, modified={modified}")
+            except Exception as e:
+                logging.error(f"DB3 bulk_write/upsert failed: {e}")
+        else:
+            logging.debug("DB3 not configured; skipping DB3 upserts")
+
+        # 3) Set per-symbol DONE flag in the designated done_redis_db and set ping in pingConn
         for doc in insertBuffer:
             sym = doc.get('Symbol')
             try:
-                self.redisConn_cloud.set(sym, 'DONE', ex=10)
-                logging.info(sym)
+                # set DONE flag in done_redis_db (TTL 10s)
+                self.done_redis_db.set(sym, 'DONE', ex=10)
             except Exception as e:
-                logging.error(f"Failed to set DONE flag for {sym} in redisConn_cloud: {e}")
+                logging.error(f"Failed to set DONE flag for {sym} in done_redis_db: {e}")
             try:
+                # still set ping timestamp in pingConn (existing behaviour)
                 self.pingConn.set(f"{sym}_1", doc.get('LastTradeTime'))
             except Exception as e:
                 logging.error(f"Failed to set ping timestamp for {sym} in pingConn: {e}")
@@ -361,7 +440,10 @@ class TrueDataAPIManager():
                         orig_sym = self.td_to_orig.get(td_sym, td_sym)  # fallback to td_sym
                         self.symIdMap[td_id] = orig_sym
 
-                self.pingConn.hset('trueDataIDMap', mapping=self.symIdMap)
+                try:
+                    self.pingConn.hset('trueDataIDMap', mapping=self.symIdMap)
+                except Exception as e:
+                    logging.error(f"Failed to persist trueDataIDMap in redis: {e}")
                 logging.critical(f'Updated sym map (ID -> original_symbol): {self.symIdMap}')
 
 
@@ -372,15 +454,21 @@ class TrueDataAPIManager():
         pass
 
     def subsrcibeSymbols(self):
-        self.ws.send(json.dumps({
-            "method": "addsymbol",
-            "symbols": self.subsricptionList
-        }))
+        try:
+            self.ws.send(json.dumps({
+                "method": "addsymbol",
+                "symbols": self.subsricptionList
+            }))
+        except Exception as e:
+            logging.error(f"Failed to send subscribe message: {e}")
 
     def logout(self):
-        self.ws.send(json.dumps({
-            "method": "logout"
-        }))
+        try:
+            self.ws.send(json.dumps({
+                "method": "logout"
+            }))
+        except Exception as e:
+            logging.error(f"Logout send failed: {e}")
 
     def disconnectionChecker(self):
         logging.critical(f'Started checking for data API disconnections....')
@@ -427,7 +515,7 @@ class TrueDataAPIManager():
         logging.debug(f'Setting timestamp on redis for {symbol}')
         self.pingConn.set(f'{symbol}_1',candle['LastTradeTime'])
         return True
-    
+
     def checkInternetStatus(self):
         working = False
         while not working:
@@ -445,36 +533,10 @@ class TrueDataAPIManager():
         """Call this method to properly clean up resources when shutting down"""
         self.should_reconnect = False
         if self.ws:
-            self.ws.close()
-
-# if __name__ == "__main__":
-#     import os
-
-#     try: 
-#         os.mkdir("./APIResponseLogs")
-#     except Exception as e:
-#         print(e)
-    
-#     logFileName = f'./APIResponseLogs/logfile_{datetime.datetime.now().strftime("%Y%m%dT%H%M%S")}.log'
-
-#     console = logging.StreamHandler()
-#     console.setLevel(logging.WARNING)
-
-#     logging.basicConfig(
-#         level=logging.INFO,
-#         format="[%(levelname)s] %(module)s %(asctime)s %(message)s",
-#         handlers=[
-#             logging.FileHandler(logFileName),
-#             console
-#         ]
-#     )
-
-#     try:
-#         obj = TrueDataAPIManager()
-#         threading.Thread(target=obj.disconnectionChecker).start()
-#     except KeyboardInterrupt:
-#         obj.cleanup()
-#         logging.info("Shutting down gracefully...")
+            try:
+                self.ws.close()
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     import os
@@ -502,7 +564,7 @@ if __name__ == "__main__":
         os.mkdir("./APIResponseLogs")
     except Exception as e:
         print(e)
-    
+
     logFileName = f'./APIResponseLogs/logfile_{datetime.now().strftime("%Y%m%dT%H%M%S")}.log'
 
     console = logging.StreamHandler()
@@ -544,7 +606,7 @@ if __name__ == "__main__":
         # ✅ Inside allowed window — run the API Manager
         try:
             obj = TrueDataAPIManager()
-            threading.Thread(target=obj.disconnectionChecker).start()
+            threading.Thread(target=obj.disconnectionChecker, daemon=True).start()
             logging.info("TrueDataAPIManager started during market hours.")
         except KeyboardInterrupt:
             obj.cleanup()

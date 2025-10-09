@@ -14,45 +14,47 @@ import redis
 from motor.motor_asyncio import AsyncIOMotorClient
 import logging
 
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read("/root/ParallelCandles/config.ini")
+
 # -------------------- CONFIG --------------------
 IST = pytz.timezone("Asia/Kolkata")
 
 # Primary Mongo for DB1/DB2 (can be local or one URI)
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+MONGO_URI = config.get("local_db", "MONGO_URI")
 
 # DB1 (TrueData)
-DB1_NAME = os.getenv("DB1_NAME", "True_Data_Candle_Data")
-DB1_COLL = os.getenv("DB1_COLL", "OHLC_MINUTE_1")
+DB1_NAME = "True_Data_Candle_Data"
+DB1_COLL = "OHLC_MINUTE_1"
 
 # DB2 (Accelpix)
-DB2_NAME = os.getenv("DB2_NAME", "Accelpix_Candle_Data")
-DB2_COLL = os.getenv("DB2_COLL", "OHLC_MINUTE_1")
+DB2_NAME = "Accelpix_Candle_Data"
+DB2_COLL =  "OHLC_MINUTE_1"
 
-MONGO_DB3_URI = os.getenv("MONGO_DB3_URI", "mongodb://mudraksh:myUserAdmin@139.5.188.158:27017/?directConnection=true")
-MONGO_DB3_HOST = os.getenv("MONGO_DB3_HOST", "139.5.188.158")
-MONGO_DB3_PORT = os.getenv("MONGO_DB3_PORT", "27017")
-MONGO_DB3_USER = os.getenv("MONGO_DB3_USER", "mudraksh")
-MONGO_DB3_PASS = os.getenv("MONGO_DB3_PASS", "myUserAdmin")
-DB3_NAME = os.getenv("DB3_NAME", "CandleData")
-DB3_COLL = os.getenv("DB3_COLL", "OHLC_MINUTE_1")
+# DB3 (consolidated)
+MONGO_DB3_URI = config.get("live_db", "MONGO_URI")
+DB3_NAME = "CandleData"
+DB3_COLL = "OHLC_MINUTE_1"
 
-# Redis for instrument list -- not used if CSV exists (we read CSV now)
-REDIS_HOST = os.getenv("REDIS_HOST", "139.5.189.229")
-REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
-REDIS_DB = int(os.getenv("REDIS_DB", "8"))
-REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "mudraksh_test")
-REDIS_PATTERN = os.getenv("REDIS_PATTERN", "dv1:*")  # not used by CSV loader
+# Redis for instrument list (CSV preferred, but kept)
+REDIS_HOST = config.get("live_db", "REDIS_HOST")
+REDIS_PORT = config.get("live_db", "REDIS_PORT")
+REDIS_DB = config.get("live_db", "REDIS_DB")
+REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
+REDIS_PATTERN = "dv1:*"
 
-# Redis endpoint(s) where we set DONE and ping keys (can be same as above or different)
-DONE_REDIS_HOST = os.getenv("DONE_REDIS_HOST", "172.16.162.133")
-DONE_REDIS_PORT = int(os.getenv("DONE_REDIS_PORT", 6379))
-DONE_REDIS_DB = int(os.getenv("DONE_REDIS_DB", "6"))            # default DB for DONE writes
-DONE_REDIS_PASSWORD = os.getenv("DONE_REDIS_PASSWORD", "mudraksh")
+# Redis endpoints where we set DONE and ping keys
+DONE_REDIS_HOST = config.get("live_db", "REDIS_HOST")
+DONE_REDIS_PORT = config.get("live_db", "REDIS_PORT")
+DONE_REDIS_DB = config.get("live_db", "REDIS_DB")
+DONE_REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
 
-PING_REDIS_HOST = os.getenv("PING_REDIS_HOST", "172.16.162.133")
-PING_REDIS_PORT = int(os.getenv("PING_REDIS_PORT", 6379))
-PING_REDIS_DB = int(os.getenv("PING_REDIS_DB", "9"))            # default DB for ping timestamps
-PING_REDIS_PASSWORD = os.getenv("PING_REDIS_PASSWORD", "mudraksh")
+PING_REDIS_HOST = config.get("live_db", "REDIS_HOST")
+PING_REDIS_PORT = config.get("live_db", "REDIS_PORT")
+PING_REDIS_DB = config.get("live_db", "REDIS_DB")
+PING_REDIS_PASSWORD = config.get("live_db", "REDIS_PASSWORD")
 
 # TTL for DONE flag (seconds)
 DONE_KEY_TTL = int(os.getenv("DONE_KEY_TTL", "10"))
@@ -64,6 +66,8 @@ MAX_AGE_SECONDS = int(os.getenv("MAX_AGE_SECONDS", "300"))
 # CSV instrument list
 INSTRUMENT_CSV = os.getenv("INSTRUMENT_CSV", "instrument_list_ohlc.csv")
 
+# Index name used across all DBs
+IDX_NAME = "idx_symbol_lut"
 # ------------------------------------------------
 SHUTDOWN = False
 
@@ -458,18 +462,6 @@ def ask_shutdown(signum=None, frame=None):
     global SHUTDOWN
     SHUTDOWN = True
     logger.info("Shutdown requested...")
-
-
-# if __name__ == "__main__":
-#     signal.signal(signal.SIGINT, ask_shutdown)
-#     signal.signal(signal.SIGTERM, ask_shutdown)
-
-#     loop = asyncio.get_event_loop()
-#     try:
-#         loop.run_until_complete(minute_scheduler_loop())
-#     finally:
-#         loop.close()
-#         logger.info("Consolidator exiting")
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, ask_shutdown)
