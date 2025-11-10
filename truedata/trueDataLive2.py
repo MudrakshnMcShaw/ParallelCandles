@@ -318,8 +318,8 @@ class TrueDataAPIManager():
         """
         Convert bar1min lists into documents and write to Mongo + DB3 + Redis DONE.
         Uses safe lookups and guarded inserts so exceptions don't halt the pipeline.
-        """
-        logging.info(f"on_candleData called with {len(candleBuffer)} items")
+        # """
+        # logging.info(f"on_candleData called with {len(candleBuffer)} items")
         # Ensure we're only processing market hours (as you had)
         try:
             if datetime.datetime.now().time() <= datetime.time(9, 15, 0):
@@ -353,6 +353,7 @@ class TrueDataAPIManager():
 
                 # check timeliness
                 if time.time() - candleTime > self.candleCuttOffTime:
+                    logging.info(f"Current time: {time.time()}, candle time: {candleTime}, diff: {time.time() - candleTime}")
                     logging.error(f"Stale candle for {symbol} (id {td_id}) at {ts_str}; skipping")
                     continue
 
@@ -631,3 +632,4 @@ if __name__ == "__main__":
         next_start = next_market_start(ist_now())
         logging.info(f"Sleeping until next market open: {next_start}")
         time.sleep((next_start - ist_now()).total_seconds())
+

@@ -3,3 +3,6 @@ venv
 *.json
 *.log
 *.ini
+*.pyc
+*.log
+*.log.*
